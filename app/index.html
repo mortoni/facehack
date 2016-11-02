@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="AppCtrl">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="P4 Udacity" name="description"/>
+    <meta content="Alan Mortoni" name="author"/>
+
+    <link rel="icon" type="image/ico" href="dashboard.ico"/>
+
+    <link rel="stylesheet" href="node_modules/pace-progress/themes/red/pace-theme-flash.css"/>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="node_modules/jquery.scrollbar/jquery.scrollbar.css"/>
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css"/>
+
+    <link rel=" stylesheet" href="bower_components/nvd3/build/nv.d3.css"/>
+    <link rel="stylesheet" href="js/lib/mapplic/css/mapplic.css"/>
+
+    <link rel="stylesheet" href="styles/pages-icons.css"/>
+    <link rel="stylesheet" href="styles/pages.css"/>
+    <link rel="stylesheet" href="styles/styles.css"/>
+</head>
+
+<body class="fixed-header" ng-class="{'bg-master-lighter': is('app.extra.timeline'),
+                                      'no-header': is('app.social') || is('app.calendar') || is('app.maps.vector') || is('app.maps.google'),
+                                      'menu-pin' : app.layout.menuPin || is('boxed'),
+                                      'menu-behind' : app.layout.menuBehind,
+                                      'box-layout' : is('boxed'),
+                                      'horizontal-menu': is('app.layouts.horizontal'),
+                                      'rtl' : is('app.layouts.rtl')}">
+
+    <div class="full-height" ui-view></div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script src="node_modules/jquery.scrollbar/jquery.scrollbar.js"></script>
+
+    <script src="js/lib/ui.utils.min.js"></script>
+    <script src="js/lib/jquery.ioslist.min.js"></script>
+    <script src="js/lib/jquery.unveil.min.js"></script>
+    <script src="js/lib/modernizr.custom.js"></script>
+    <script src="js/lib/pages.js"></script>
+    <script src="js/lib/mapplic/js/hammer.js"></script>
+    <script src="js/lib/mapplic/js/jquery.mousewheel.js"></script>
+    <script src="js/lib/mapplic/js/mapplic.js"></script>
+
+
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/build/nv.d3.js"></script>
+
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="routes.js"></script>
+    <script src="main.js"></script>
+
+    <script src="js/controllers/dashboard.js"></script>
+    <script src="js/controllers/data-view.js"></script>
+    <script src="js/controllers/metrics.js"></script>
+
+    <script src="js/services/issues.js"></script>
+
+    <script src="js/directives/pg-sidebar.js"></script>
+    <script src="js/directives/cs-select.js"></script>
+    <script src="js/directives/pg-dropdown.js"></script>
+    <script src="js/directives/pg-form-group.js"></script>
+    <script src="js/directives/pg-navigate.js"></script>
+    <script src="js/directives/pg-portlet.js"></script>
+    <script src="js/directives/pg-tab.js"></script>
+    <script src="js/directives/pg-search.js"></script>
+    <script src="js/directives/pg-quickview.js"></script>
+    <script src="js/directives/pg-notification-center.js"></script>
+    <script src="js/directives/pg-horizontal-menu.js"></script>
+    <script src="js/directives/pg-tab-dropdownfx.js"></script>
+    <script src="js/directives/skycons.js"></script>
+  </body>
+</html>

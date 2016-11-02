@@ -4,7 +4,6 @@ var path = require('path');
 var gulp = require('gulp');
 var less = require('gulp-less');
 var clean = require('gulp-clean');
-var minifycss    = require('gulp-minify-css');
 var browserSync = require('browser-sync');
 var concatCss = require('gulp-concat-css');
 var cleanCSS = require('gulp-clean-css');
@@ -13,6 +12,7 @@ var ngmin = require('gulp-ngmin');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var htmlmin = require('gulp-htmlmin');
+var sass = require('gulp-sass');
 
 //CONFIG PATHS
 var config = {
@@ -37,7 +37,7 @@ gulp.task('serve', function() {
     console.log('## server started ##');
 
     gulp.watch('app/**/*').on('change', browserSync.reload);
-
+		gulp.watch('app/styles/**/*.scss', ['sass']);
     gulp.watch('app/**/*.js').on('change', function(event) {
         console.log("Linting " + event.path);
     });
@@ -143,12 +143,17 @@ gulp.task('images', function() {
       .pipe(gulp.dest('dist/app/images'));
 });
 
-gulp.task('api', function() {
-  gulp.src(['app/api/**/*'])
-      .pipe(gulp.dest('dist/app/api'));
-});
-
 gulp.task('fonts-awesome', function() {
   gulp.src(['node_modules/font-awesome/fonts/**/*'])
       .pipe(gulp.dest('dist/app/font-awesome/fonts'));
+});
+
+gulp.task('sass', function () {
+  return gulp.src('app/styles/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('app/styles'));
+});
+
+gulp.task('sass:watch', function () {
+  gulp.watch('app/styles/**/*.scss', ['sass']);
 });

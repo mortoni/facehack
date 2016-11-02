@@ -1,18 +1,21 @@
 {
-  "name": "dashboard",
+  "name": "facehack",
   "version": "1.0.0",
-  "description": "P4 Udacity- Dashboard",
+  "description": "P5 Udacity- Facehack",
   "dependencies": {
     "browser-sync": "^2.17.5",
-    "gulp-jslint": "^1.0.5"
-  },
-  "private": "true",
-  "devDependencies": {
+    "gulp-jslint": "^1.0.5",
     "angular": "^1.5.8",
     "angular-ui-grid": "^3.2.9",
     "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "jquery.scrollbar": "^0.2.11",
+    "pace-progress": "^1.0.2"
+  },
+  "private": "true",
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.13",
@@ -24,10 +27,8 @@
     "gulp-minify-css": "^1.2.4",
     "gulp-ngmin": "^0.3.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "jquery": "^3.1.1",
-    "jquery.scrollbar": "^0.2.11",
-    "jshint": "^2.9.4",
-    "pace-progress": "^1.0.2"
+    "jshint": "^2.9.4"
   }
 }

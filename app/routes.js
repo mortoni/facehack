@@ -19,7 +19,7 @@
                 .state('core', {
                     abstract: true,
                     url: "/core",
-                    templateUrl: "views/core.html"
+                    template: '<div ui-view></div>'
                 });
         }
     ]);

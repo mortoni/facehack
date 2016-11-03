@@ -12,7 +12,7 @@
                 })
                 .state('app.dashboard', {
                     url: "/dashboard",
-                    templateUrl: "views/dashboard.html",
+                    templateUrl: "views/app/dashboard.html",
                     controller: 'DashboardCtrl',
                     controllerAs: 'vm'
                 })
@@ -20,7 +20,15 @@
                     abstract: true,
                     url: "/core",
                     template: '<div ui-view></div>'
-                });
+                })
+                .state('core.login', {
+                    url: "/login",
+                    templateUrl: "views/core/login.html",
+                    controller: 'LoginCtrl',
+                    controllerAs: 'vm'
+                })
+
+                ;
         }
     ]);
 })();

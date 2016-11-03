@@ -1,0 +1,137 @@
+@import "http://weloveiconfonts.com/api/?family=entypo";
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	&:before {
+		margin: 0;
+		padding: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	&:after {
+		margin: 0;
+		padding: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+}
+#lamp {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background: #2f323c;
+}
+input[name="switch"] {
+	position: absolute;
+	bottom: 3rem;
+	width: 4rem;
+	height: 4rem;
+	opacity: 0;
+	z-index: 9;
+	cursor: pointer;
+	+ {
+		label {
+			position: absolute;
+			bottom: 3rem;
+			width: 4rem;
+			height: 4rem;
+			right: 3rem;
+			text-align: center;
+		}
+	}
+}
+input[value="on"] {
+	right: 3rem;
+	&:checked {
+		right: -4rem;
+		+ {
+			input[value="off"] {
+				right: 3rem;
+			}
+		}
+		~ {
+			.lamp {
+				&:before {
+					background: rgba(255,255,255,1);
+					box-shadow: 0px 2px 10px rgba(255,255,255,0.8), 0px 5px 50px rgba(255,255,255,0.8), 0px 8px 80px rgba(255,255,255,0.6), 0px 8px 120px rgba(255,255,255,0.6);
+				}
+			}
+		}
+	}
+}
+input[value="off"] {
+	right: -4rem;
+}
+[class*="entypo-"] {
+	&:before {
+		line-height: 4rem;
+		font-size: 2.5rem;
+		color: rgba(255,255,255,0.4);
+		font-family: 'entypo', sans-serif;
+	}
+}
+.lamp {
+	position: relative;
+	margin: 0 auto;
+	width: .7rem;
+	height: 10rem;
+	background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+	background-repeat: no-repeat;
+	background-size: .15rem 8rem, .4rem .8rem, .7rem 2rem;
+	background-position: 50% 0, .19rem 8rem, 0 8.8rem;
+	&:before {
+		content: '';
+		position: absolute;
+		left: -1.65rem;
+		bottom: -4rem;
+		width: 4rem;
+		height: 4rem;
+		border-radius: 50%;
+		background: rgba(255,255,255,0.03);
+		box-shadow: inset 2px -2px 10px rgba(255,255,255,0.07);
+		transition: all .15s;
+	}
+	&:after {
+		content: '';
+		margin-right: 32%;
+		position: absolute;
+	}
+}
+.gonna-give-light {
+	position: absolute;
+	top: 10.05rem;
+	left: .25rem;
+	width: 0;
+	height: 1.5rem;
+	border-right: .2rem solid rgba(255,255,255,0.05);
+	&:before {
+		position: absolute;
+		content: '';
+		top: 1.5rem;
+		left: -.35rem;
+		width: .9rem;
+		height: .9rem;
+		border-radius: 50%;
+		border: .2rem solid rgba(255,255,255,0.05);
+		box-shadow: 0px 0px 50px rgba(255,255,255,0);
+	}
+}
+
+.bottom {
+	top: 40%;
+}
+
+.entypo-lamp:focus {
+	outline: none;
+}
+
+.btn-facehack{
+	margin-top: 34%;
+	background-color: #2f323c;
+}

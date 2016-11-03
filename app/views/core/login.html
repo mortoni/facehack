@@ -1,29 +1,23 @@
-<!-- <div id="lamp">
-  <input type="radio" name="switch" value="on" />
-  <input type="radio" name="switch" value="off" checked="checked"/>
-  <label for="switch" class="entypo-lamp pull-right"></label>
-  <div class="lamp">
-    <div class="gonna-give-light"></div>
-  </div>
-</div> -->
-
-
 <div id="lamp">
   <input type="radio" name="switch" ng-value="vm.isLamp()" checked="checked" tabindex="-1"/>
   <div class="lamp"><div class="gonna-give-light"></div></div>
 
-  <div class="text-center">
-    <button class="btn btn-primary btn-cons btn-facehack" tabindex="0" ng-click="vm.login()">
+  <div class="text-center hidden-xs hidden-sm">
+    <button class="btn btn-primary btn-cons btn-facehack" tabindex="0" ng-click="vm.login_desktop()">
       <span ng-show="vm.lamp">Facehack</span>
       <span ng-show="!vm.lamp">185.60.216.35</span>
     </button>
-
   </div>
 
+  <div class="text-center visible-sm visible-xs">
+    <button class="btn btn-primary btn-cons btn-facehack" tabindex="0" ng-click="vm.login_mobile()">
+      <span ng-show="vm.lamp">Facehack</span>
+      <span ng-show="!vm.lamp">185.60.216.35</span>
+    </button>
+  </div>
 
   <div class="col-xs-12 text-center bottom">
     <label for="switch" class="entypo-lamp bottom" ng-click="vm.lamp = !vm.lamp" tabindex="-1"></label>
   </div>
-
 
 </div>

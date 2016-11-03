@@ -3,9 +3,14 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope'];
+    DashboardCtrl.$inject = ['$scope', 'user'];
 
-    function DashboardCtrl($scope){
+    function DashboardCtrl($scope, user){
+      var vm = this;
+
+      vm.user = user.current();
+
+      vm.test = "oi ";
 
     }
 })();

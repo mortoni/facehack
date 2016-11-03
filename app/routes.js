@@ -8,7 +8,10 @@
                 .state('app', {
                     abstract: true,
                     url: "/app",
-                    templateUrl: "views/app/app.html"
+                    templateUrl: "views/app/app.html",
+                    data: {
+                      requireLogin: true
+                    }
                 })
                 .state('app.dashboard', {
                     url: "/dashboard",
@@ -19,7 +22,10 @@
                 .state('core', {
                     abstract: true,
                     url: "/core",
-                    template: '<div ui-view></div>'
+                    template: '<div ui-view></div>',
+                    data: {
+                      requireLogin: false
+                    }
                 })
                 .state('core.login', {
                     url: "/login",

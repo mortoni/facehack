@@ -6,7 +6,7 @@
      'use strict';
 
 angular.module('app')
-    .controller('AppCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
+    .controller('AppCtrl', ['$scope', '$rootScope', '$state', 'user', function($scope, $rootScope, $state, user) {
 
         // App globals
         $scope.app = {
@@ -35,6 +35,8 @@ angular.module('app')
                 show: true
             })
         }
+
+        $scope.user = user.current();
 
     }]);
 })();

@@ -5,6 +5,6 @@
     "angular-material-data-table": "^0.10.9",
     "angular-chart.js": "^1.0.3",
     "angularfire": "^2.1.0",
-    "angular-nvd3": "^1.0.9"
+    "angular-material": "^1.1.1"
   }
 }

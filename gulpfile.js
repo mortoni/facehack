@@ -51,7 +51,7 @@ gulp.task('less', function () {
     .pipe(gulp.dest(config.pages+'/css/'));
 });
 
-gulp.task('build', ['css-min', 'compress', 'pages', 'images', 'fonts-awesome', 'api']);
+gulp.task('build', ['css-min', 'ico', 'compress', 'pages', 'images', 'fonts-awesome']);
 
 gulp.task('css-min', function() {
   return gulp.src(['node_modules/pace-progress/themes/red/pace-theme-flash.css',
@@ -60,12 +60,10 @@ gulp.task('css-min', function() {
                    'node_modules/jquery.scrollbar/jquery.scrollbar.css',
                    'bower_components/angular-material/angular-material.min.css',
                    'bower_components/angular-material-data-table/dist/md-data-table.min.css',
-									 'bower_components/nvd3/build/nv.d3.css',
-									 'app/js/lib/mapplic/css/mapplic.css',
                    'app/styles/pages-icons.css',
 								 	 'app/styles/pages.css',
 							 	 	 'app/styles/styles.css'])
-		.pipe(concatCss('styles-1.0.5.min.css'))
+		.pipe(concatCss('styles-1.0.0.min.css'))
     .pipe(cleanCSS({ keepSpecialComments: 1, processImport: false }))
     .pipe(gulp.dest('dist/app/styles'));
 });
@@ -83,7 +81,8 @@ gulp.task('default', function() {
 });
 
 gulp.task('compress', function() {
-  return gulp.src(['node_modules/jquery/dist/jquery.min.js',
+  return gulp.src(['bower_components/firebase/firebase.js',
+									 'node_modules/jquery/dist/jquery.min.js',
 									 'node_modules/angular/angular.js',
 								   'node_modules/angular-ui-router/release/angular-ui-router.js',
 								 	 'node_modules/angular-ui-grid/ui-grid.js',
@@ -93,9 +92,6 @@ gulp.task('compress', function() {
 									 'app/js/lib/jquery.unveil.min.js',
 									 'app/js/lib/modernizr.custom.js',
 									 'app/js/lib/pages.js',
-									 'app/js/lib/mapplic/js/hammer.js',
-									 'app/js/lib/mapplic/js/jquery.mousewheel.js',
-									 'app/js/lib/mapplic/js/mapplic.js',
 									 'bower_components/angular-animate/angular-animate.min.js',
 									 'bower_components/angular-aria/angular-aria.min.js',
 									 'bower_components/angular-material/angular-material.min.js',
@@ -103,9 +99,6 @@ gulp.task('compress', function() {
 									 'bower_components/chart.js/dist/Chart.min.js',
 									 'bower_components/angular-chart.js/dist/angular-chart.min.js',
 									 'bower_components/angularfire/dist/angularfire.min.js',
-									 'bower_components/d3/d3.js',
-									 'bower_components/nvd3/build/nv.d3.js',
-									 'bower_components/angular-nvd3/dist/angular-nvd3.js',
 									 'app/app.js',
 									 'app/config.js',
 									 'app/routes.js',
@@ -113,7 +106,7 @@ gulp.task('compress', function() {
 									 'app/js/controllers/*.js',
 									 'app/js/services/*.js',
 									 'app/js/directives/*.js'])
-    .pipe(concat('bundle-1.0.5.js'))
+    .pipe(concat('bundle-1.0.0.js'))
     .pipe(ngmin())
     .pipe(gulp.dest('dist/app/js'))
     .pipe(rename({suffix: '.min'}))
@@ -146,6 +139,11 @@ gulp.task('images', function() {
 gulp.task('fonts-awesome', function() {
   gulp.src(['node_modules/font-awesome/fonts/**/*'])
       .pipe(gulp.dest('dist/app/font-awesome/fonts'));
+});
+
+gulp.task('ico', function() {
+  gulp.src(['app/facehack.ico'])
+      .pipe(gulp.dest('dist/app'));
 });
 
 gulp.task('sass', function () {

@@ -3,9 +3,9 @@
 
   angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', 'user', '$state'];
+    LoginCtrl.$inject = ['$scope', 'user', '$state', '$window'];
 
-    function LoginCtrl($scope, user, $state){
+    function LoginCtrl($scope, user, $state, $window){
       var vm = this;
 
       vm.lamp = false;
@@ -21,8 +21,8 @@
 
       function login_desktop() {
         firebase.auth().signInWithPopup(provider).then(function(result) {
-          var token = result.credential.accessToken;
           user.set(result.user);
+          $window.fbAsyncInit();
           $state.go('app.dashboard');
         }).catch(function(error) {
           var errorCode = error.code;
@@ -34,10 +34,8 @@
 
       function login_mobile() {
         firebase.auth().getRedirectResult().then(function(result) {
-          if (result.credential) {
-            var token = result.credential.accessToken;
-          }
           user.set(result.user);
+          $window.fbAsyncInit();
           $state.go('app.dashboard');
         }).catch(function(error) {
           var errorCode = error.code;
@@ -46,5 +44,15 @@
           var credential = error.credential;
         });
       }
+
+      $window.fbAsyncInit = function() {
+          FB.init({
+            appId: '1604104083228708',
+            status: true,
+            cookie: true,
+            xfbml: true,
+            version: 'v2.4'
+          });
+      };
     }
 })();

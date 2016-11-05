@@ -1,3 +1,8 @@
 node_modules
 bower_components
-dist
+dist/app/font-awesome
+dist/app/images
+dist/app/js
+dist/app/styles
+dist/app/views
+dist/app/facehack.ico

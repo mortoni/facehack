@@ -4,16 +4,16 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>Dashboard</title>
+    <title>Facehack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta content="P4 Udacity" name="description"/>
+    <meta content="P5 Udacity" name="description"/>
     <meta content="Alan Mortoni" name="author"/>
 
-    <link rel="icon" type="image/ico" href="dashboard.ico"/>
+    <link rel="icon" type="image/ico" href="facehack.ico"/>
 
     <link rel="stylesheet" href="node_modules/pace-progress/themes/red/pace-theme-flash.css"/>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
@@ -38,8 +38,9 @@
 
     <div class="full-height" ui-view></div>
 
-    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
 
+    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/angular/angular.js"></script>
@@ -70,6 +71,7 @@
     <script src="js/controllers/dashboard.js"></script>
 
     <script src="js/services/user.js"></script>
+    <script src="js/services/facebook.js"></script>
 
     <script src="js/directives/pg-sidebar.js"></script>
     <script src="js/directives/cs-select.js"></script>
@@ -84,5 +86,6 @@
     <script src="js/directives/pg-horizontal-menu.js"></script>
     <script src="js/directives/pg-tab-dropdownfx.js"></script>
     <script src="js/directives/skycons.js"></script>
+
   </body>
 </html>

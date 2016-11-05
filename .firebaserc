@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "udacityfour"
+    "default": "udacityfour",
+    "facehack": "facehack-19ecb"
   }
 }

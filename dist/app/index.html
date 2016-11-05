@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="AppCtrl">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Facehack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="P5 Udacity" name="description"/>
+    <meta content="Alan Mortoni" name="author"/>
+
+    <link rel="icon" type="image/ico" href="facehack.ico"/>
+
+    <link rel="stylesheet" href="styles/styles-1.0.0.min.css"/>
+</head>
+
+<body class="fixed-header" ng-class="{'bg-master-lighter': is('app.extra.timeline'),
+                                      'no-header': is('app.social') || is('app.calendar') || is('app.maps.vector') || is('app.maps.google'),
+                                      'menu-pin' : app.layout.menuPin || is('boxed'),
+                                      'menu-behind' : app.layout.menuBehind,
+                                      'box-layout' : is('boxed'),
+                                      'horizontal-menu': is('app.layouts.horizontal'),
+                                      'rtl' : is('app.layouts.rtl')}">
+
+    <div class="full-height" ui-view></div>
+
+
+    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="js/bundle-1.0.0.min.js"></script>
+  </body>
+</html>

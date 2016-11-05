@@ -1,0 +1,36 @@
+<div class="container-fluid padding-25 sm-padding-10">
+
+  <div class="row">
+    <form role="form">
+      <div class="form-group col-xs-12 col-md-4 col-md-offset-4">
+        <label>Type in a facebook page name</label>
+        <span class="help">e.g. "Ferrari" and press enter</span>
+        <input type="text" class="form-control" ng-keypress="vm.searchBox($event)" ng-model="vm.searchInput">
+      </div>
+    </form>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="page in vm.pages" style="padding: 0;" ng-if="page.cover">
+    <md-card md-theme-watch>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline face-card-label">{{page.name}}</span>
+          <span class="md-subhead">{{page.fan_count | number}}
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="thumbnail-wrapper d64 circular">
+            <img width="40" height="40" ng-src="{{page.picture}}" alt="{{page.name}} Picture" class=""/>
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button>Spy</md-button>
+        <md-button>Hack</md-button>
+        <md-button>More</md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+</div>

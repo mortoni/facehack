@@ -10505,11 +10505,11 @@ Main components
   height: 70px;
   top: -70px;
 }
-@media (max-width: 920px) {
+/*@media (max-width: 920px) {
   .gallery-item.first {
     display: none;
   }
-}
+}*/
 @media (max-width: 767px) {
   .item-details .dialog__content {
     height: 90%;

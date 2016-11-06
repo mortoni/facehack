@@ -2,10 +2,30 @@
 
   <div class="row">
     <form role="form">
-      <div class="form-group col-xs-12 col-md-4 col-md-offset-4">
-        <label>Type in a facebook page name</label>
-        <span class="help">e.g. "Ferrari" and press enter</span>
-        <input type="text" class="form-control" ng-keypress="vm.searchBox($event)" ng-model="vm.searchInput">
+      <div class="form-group btn-group col-xs-12 col-md-4 col-md-offset-4">
+
+        <label>Type in a facebook page name and press enter</label>
+        <div class="col-xs-12">
+          <div class="col-xs-10">
+            <input type="text"
+                   class="form-control"
+                   ng-keypress="vm.searchBox($event)"
+                   ng-model="vm.searchInput"
+                   tabindex="0"
+                   aria-label="Type in a facebook page name and press enter">
+          </div>
+          <div class="col-xs-2 p-l-0">
+            <button type="button"
+                    class="btn btn-default"
+                    data-toggle="quickview"
+                    data-toggle-element="#quickview"
+                    tabindex="0"
+                    aria-label="Click here to open configurations">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
       </div>
     </form>
   </div>
@@ -21,13 +41,13 @@
         </md-card-title-text>
         <md-card-title-media>
           <div class="thumbnail-wrapper d64 circular">
-            <img width="40" height="40" ng-src="{{page.picture}}" alt="{{page.name}} Picture" class=""/>
+            <img width="40" height="40" ng-src="{{page.picture}}" alt="{{page.name}} Picture"/>
           </div>
         </md-card-title-media>
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
         <md-button>Spy</md-button>
-        <md-button>Hack</md-button>
+        <md-button ng-click="vm.hack(page)">Hack</md-button>
         <md-button>More</md-button>
       </md-card-actions>
     </md-card>

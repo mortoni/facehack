@@ -19,6 +19,18 @@
                     controller: 'DashboardCtrl',
                     controllerAs: 'vm'
                 })
+                .state('app.hack', {
+                    url: "/hack",
+                    templateUrl: "views/app/hack.html",
+                    controller: 'HackCtrl',
+                    controllerAs: 'vm'
+                })
+                .state('app.content', {
+                    url: "/hack",
+                    templateUrl: "views/app/content.html",
+                    controller: 'ContentCtrl',
+                    controllerAs: 'vm'
+                })
                 .state('core', {
                     abstract: true,
                     url: "/core",

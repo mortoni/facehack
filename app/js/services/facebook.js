@@ -1,10 +1,12 @@
 (function () {
     'use strict';
+    angular.module('app').factory('facebook', [ 'notification',
 
-    angular.module('app').factory('facebook', function(){
+    function(notification){
+
       var expression;
       var target;
-      var limit = 30;
+      var limit = 15;
       var pages = [];
 
       function set_exp(e) {expression = e;}
@@ -12,6 +14,7 @@
       function set_target(t) {target = t;}
       function get_target() {return target;}
       function set_limit(l) {limit = l;}
+      function get_limit() {return limit;}
       function get_pages() {return pages;}
 
 
@@ -23,8 +26,8 @@
                 pages = response.data;
                 resolve(pages);
             } else {
+                notification.show('Something went wrong!');
                 reject();
-              //TODO error handle
             }
           });
         });
@@ -37,14 +40,79 @@
             if (response && !response.error) {
               page.about = response.about;
               page.category = response.category;
-              page.cover = response.cover.source;
+              if(typeof response.cover !== 'undefined')
+                page.cover = response.cover.source;
               page.fan_count = response.fan_count;
               page.picture = response.picture.data.url;
+              page.isPaused = false;
               resolve(page);
             } else {
+              notification.show('Something went wrong!');
               reject();
-              //TODO error handle
             }
+          });
+        });
+      }
+
+      function content(data, page) {
+        var content = {
+          page          : page,
+          comments      : data.comments     ? data.comments.summary.total_count : 0 ,
+          created_time  : data.created_time ? data.created_time : '',
+          full_picture  : data.full_picture ? data.full_picture : '',
+          id            : data.id           ? data.id : 0,
+          likes         : data.likes        ? data.likes.summary.total_count : 0,
+          link          : data.link         ? data.link : '',
+          message       : data.message      ? data.message : '',
+          shares        : data.shares       ? data.shares.count : 0,
+          type          : data.type         ? data.type : ''
+        }
+        // content.shares
+
+        return content;
+      }
+
+      function get_content(page) {
+        return new Promise(function(resolve, reject){
+            FB.api(
+            "/" + page.id + "/feed?fields=message,full_picture,link,source,type,created_time,shares,comments.summary(true),likes.summary(true)&limit=1",
+            function (response) {
+                if (response && !response.error) {
+                  var post = content(response.data[0], page);
+                  if(isHourAgo(post))
+                    resolve(post);
+                  resolve();
+                }
+            });
+        });
+      }
+
+      function isHourAgo(post) {
+        var hourPost = new Date(post.created_time).getHours();
+        var hourNow = new Date().getHours();
+        var minutesPost = new Date(post.created_time).getMinutes();
+        var minutesNow = new Date().getMinutes();
+
+        if((hourNow - hourPost <= 1) && (hourNow - hourPost >= 0)){
+          if(minutesPost <= minutesNow)
+            return true;
+        }
+        return false;
+      }
+
+      function updata_content(content){
+        return new Promise(function(resolve, reject) {
+          FB.api(
+          "/" + content.id + "?fields=comments.limit(0).summary(true),likes.limit(0).summary(true),shares.limit(0).summary(true),full_picture,link",
+          function (response) {
+              if (response && !response.error) {
+                content.full_picture  = response.full_picture || content.full_picture;
+                content.likes         = response.likes.summary.total_count || content.likes;
+                content.link          = response.link || content.link;
+                content.comments      = response.comments.summary.total_count || content.comments;
+                content.shares        = response.shares ? response.shares.count : content.shares;
+                resolve(content);
+              }
           });
         });
       }
@@ -57,7 +125,10 @@
         set_exp     : set_exp,
         get_exp     : get_exp,
         get_pages   : get_pages,
-        update      : update
+        update      : update,
+        get_limit   : get_limit,
+        get_content : get_content,
+        updata_content : updata_content
       };
-    });
+    }]);
 })();

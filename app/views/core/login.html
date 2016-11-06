@@ -1,14 +1,14 @@
 <div id="lamp">
-  <input type="radio" name="switch" ng-value="vm.isLamp()" checked="checked" tabindex="-1"/>
+  <input type="radio" name="switch" ng-value="vm.isLamp()" checked="checked" tabindex="-1" aria-label="radio lamp button"/>
   <div class="lamp"><div class="gonna-give-light"></div></div>
 
   <div class="text-center hidden-xs hidden-sm">
     <div class="btn-group btn-m-t" role="group">
-      <button class="btn btn-primary btn-facehack" tabindex="0" ng-click="vm.login_desktop()">
+      <button class="btn btn-primary btn-facehack" tabindex="0" ng-click="vm.login_desktop()" aria-label="Click here to login into Application using your facebook account">
         <span ng-show="vm.lamp">Facehack</span>
         <span ng-show="!vm.lamp">185.60.216.35</span>
       </button>
-      <button class="btn btn-primary"  ng-click="vm.lamp = !vm.lamp">
+      <button class="btn btn-primary"  ng-click="vm.lamp = !vm.lamp" tabindex="-1" aria-label="Turn on the light">
         <i class="fa fa-unlock" aria-hidden="true" ng-show="vm.lamp"></i>
         <i class="fa fa-lock" aria-hidden="true" ng-show="!vm.lamp"></i>
       </button>
@@ -21,15 +21,11 @@
         <span ng-show="vm.lamp">Facehack</span>
         <span ng-show="!vm.lamp">185.60.216.35</span>
       </button>
-      <button class="btn btn-primary"  ng-click="vm.lamp = !vm.lamp">
+      <button class="btn btn-primary"  ng-click="vm.lamp = !vm.lamp" tabindex="-1" aria-label="Turn on the light">
         <i class="fa fa-unlock" aria-hidden="true" ng-show="vm.lamp"></i>
         <i class="fa fa-lock" aria-hidden="true" ng-show="!vm.lamp"></i>
       </button>
     </div>
   </div>
-
-  <!-- <div class="col-xs-12 text-center bottom">
-    <label for="switch" class="entypo-lamp bottom" ng-click="vm.lamp = !vm.lamp" tabindex="-1"></label>
-  </div> -->
 
 </div>

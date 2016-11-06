@@ -13724,7 +13724,7 @@ Main components
     background-size: 480px 40px;
   }
   .alert .close {
-    background: url("../img/icons/noti-cross-2x.png") no-repeat scroll 0 0 transparent;
+    background: url("../images/noti-cross-2x.png") no-repeat scroll 0 0 transparent;
     background-position: -9px -10px;
     width: 10px;
     height: 9px;

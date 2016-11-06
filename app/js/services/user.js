@@ -5,7 +5,9 @@
       var user;
 
       function set(u) { user =  u; }
-      function current() { return user; }
+      function current() {
+        return user;
+      }
 
       return {
         set      : set,

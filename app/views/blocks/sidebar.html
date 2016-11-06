@@ -1,15 +1,24 @@
-<nav class="page-sidebar" data-pages="sidebar" pg-sidebar>
+<nav class="page-sidebar" data-pages="sidebar" pg-sidebar ng-controller="WidgetCtrl">
   <div class="sidebar-overlay-slide from-top" id="appMenu">
     <div class="row">
     </div>
 
   </div>
   <div class="sidebar-header">
-    <img alt="Facehack Logo" src="../images/facehack.png">
+    <!-- <img alt="Facehack Logo" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/magic-marker-icons-symbols-shapes/116356-magic-marker-icon-symbols-shapes-tile4-sc36.png" height="60" width="60"> -->
     <div class="pull-right m-r-35">
-      <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
-      </button>
-      <button type="button" class="btn btn-link visible-lg-inline" data-toggle-pin="sidebar"><i class="fa fs-12"></i>
+      <!-- <button type="button"
+              class="btn btn-xs sidebar-slide-toggle btn-link m-l-20"
+              data-pages-toggle="#appMenu"
+              tabindex="-1">
+              <i class="fa fa-angle-down fs-16"></i>
+      </button> -->
+      <button type="button"
+              class="btn btn-link visible-lg-inline"
+              data-toggle-pin="sidebar"
+              tabindex="-1"
+              aria-label="Click here to fix sidebac on screen">
+              <i class="fa fs-12"></i>
       </button>
     </div>
   </div>
@@ -20,7 +29,21 @@
         <a ui-sref="app.dashboard" class="detailed">
           <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail"><i class="fa fa-tachometer" aria-hidden="true"></i></span>
+        <span class="icon-thumbnail" ng-class="{'bg-complete': $state.current.name == 'app.dashboard'}"><i class="fa fa-tachometer" aria-hidden="true"></i></span>
+      </li>
+
+      <li class="open" ui-sref-active="active">
+        <a ui-sref="app.hack" class="detailed">
+          <span class="title">Pool</span>
+        </a>
+        <span class="icon-thumbnail" ng-class="{'bg-complete': $state.current.name == 'app.hack'}"><i class="fa fa-diamond" aria-hidden="true"></i></span>
+      </li>
+
+      <li class="open" ui-sref-active="active">
+        <a ui-sref="app.content" class="detailed">
+          <span class="title">Contents</span>
+        </a>
+        <span class="icon-thumbnail" ng-class="{'bg-complete': $state.current.name == 'app.contents'}"><i class="fa fa-database" aria-hidden="true"></i></span>
       </li>
     </ul>
     <div class="clearfix"></div>

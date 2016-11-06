@@ -15,7 +15,10 @@
       <div class="pull-center hidden-md hidden-lg">
         <div class="header-inner">
           <div class="brand inline">
-            <img alt="Facehack Logo" src="../images/facehack.png">
+            <!-- <img alt="Facehack Logo" src="../images/facehack.png"> -->
+            <img alt="Facehack Logo" src="../images/facehack2.png" height="60" width="60">
+
+
           </div>
         </div>
       </div>
@@ -25,9 +28,18 @@
     <div class=" pull-left sm-table hidden-xs hidden-sm">
         <div class="header-inner">
             <div class="brand inline">
-              <img alt="Facehack Logo" src="../images/facehack.png">
+              <img alt="Facehack Logo" src="../images/facehack2.png" height="70" width="70">
             </div>
         </div>
+    </div>
+
+    <div class=" pull-right">
+        <!-- <div class="header-inner"> -->
+            <!-- <a href=""
+               class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs"
+               data-toggle="quickview"
+               data-toggle-element="#quickview"></a> -->
+        <!-- </div> -->
     </div>
 
     <div class=" pull-right">
@@ -37,22 +49,34 @@
                 <span class="semi-bold">{{vm.user.displayName}}</span>
             </div>
             <div class="dropdown pull-right">
-                <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="profile-dropdown-toggle"
+                        type="button" data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-label="User Menu">
                     <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img ng-src="{{vm.user.photoURL}}" alt="" ui-jq="unveil" width="32" height="32">
-            </span>
+                      <img ng-src="{{vm.user.photoURL}}" alt="User photo" ui-jq="unveil" width="32" height="32">
+                    </span>
                 </button>
+
                 <ul class="dropdown-menu profile-dropdown" role="menu">
-                    <li><a href=""><i class="pg-settings_small"></i> Settings</a>
+                    <li role="menuitem" tabindex="-1">
+                      <a href="" data-toggle="quickview" data-toggle-element="#quickview">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        <span class="user-menu-label">Settings</span>
+                      </a>
                     </li>
-                    <li><a href=""><i class="pg-outdent"></i> Feedback</a>
+                    <li role="menuitem" tabindex="-1">
+                      <a href="">
+                        <i class="fa fa-question" aria-hidden="true"></i>
+                        <span class="user-menu-label">Help</span>
+                      </a>
                     </li>
-                    <li><a href=""><i class="pg-signals"></i> Help</a>
-                    </li>
-                    <li class="bg-master-lighter">
+                    <li role="menuitem" tabindex="-1" class="bg-master-lighter">
                         <a href="" class="clearfix">
                             <span class="pull-left">Logout</span>
-                            <span class="pull-right"><i class="pg-power"></i></span>
+                            <span class="pull-right"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
                         </a>
                     </li>
                 </ul>

@@ -3,9 +3,9 @@
 
   angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', 'user', '$state', '$window'];
+    LoginCtrl.$inject = ['$scope', 'user', '$state', '$window' , 'notification'];
 
-    function LoginCtrl($scope, user, $state, $window){
+    function LoginCtrl($scope, user, $state, $window, notification){
       var vm = this;
 
       vm.lamp = false;
@@ -23,12 +23,10 @@
         firebase.auth().signInWithPopup(provider).then(function(result) {
           user.set(result.user);
           $window.fbAsyncInit();
+          notification.show('Yoo HACKER be welcome!');
           $state.go('app.dashboard');
         }).catch(function(error) {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          var email = error.email;
-          var credential = error.credential;
+          notification.show('GO AWAY! You are not a HACKER.' + error.message);
         });
       }
 
@@ -36,12 +34,10 @@
         firebase.auth().getRedirectResult().then(function(result) {
           user.set(result.user);
           $window.fbAsyncInit();
+          notification.show('Yoo HACKER be welcome!');
           $state.go('app.dashboard');
         }).catch(function(error) {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          var email = error.email;
-          var credential = error.credential;
+          notification.show('GO AWAY! You are not a HACKER.' + error.message);
         });
       }
 

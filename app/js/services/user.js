@@ -8,10 +8,14 @@
       function current() {
         return user;
       }
+      function logout() {
+        user = {};
+      }
 
       return {
         set      : set,
-        current  : current
+        current  : current,
+        logout   : logout
       };
     });
 })();

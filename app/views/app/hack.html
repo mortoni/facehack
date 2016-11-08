@@ -4,7 +4,12 @@
     <md-toolbar class="md-table-toolbar md-default bk-trans">
       <div class="md-toolbar-tools">
         <span class="m-r-20">Pages on Hack Pool</span>
-        <button type="button" class="btn btn-primary btn-xs">
+        <button type="button"
+                class="btn btn-primary tip btn-xs"
+                data-toggle="tooltip"
+                data-original-title="Help?"
+                ui-jq="tooltip"
+                ng-click="vm.help_pool()">
           <i class="fa fa-question" aria-hidden="true"></i>
         </button>
       </div>
@@ -35,11 +40,19 @@
             </td>
 
             <td md-cell>
-              <button type="button" class="btn btn-complete btn-xs" ng-click="vm.resume(page)">
+              <button type="button"
+                      class="btn btn-complete btn-xs"
+                      ng-click="vm.resume(page)">
                 <i class="fa fa-play" aria-hidden="true" ng-hide="page.isPaused"></i>
                 <i class="fa fa-pause" aria-hidden="true" ng-hide="!page.isPaused"></i>
               </button>
-              <button type="button" class="btn btn-complete btn-xs" ng-click="vm.remove(page)" ng-hide="page.isPaused">
+              <button type="button"
+                      class="btn btn-complete tip btn-xs"
+                      data-toggle="tooltip"
+                      data-original-title="Delete"
+                      ui-jq="tooltip"
+                      ng-click="vm.remove(page)"
+                      ng-hide="page.isPaused">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
 
@@ -56,7 +69,12 @@
       <md-toolbar class="md-table-toolbar md-default bk-trans">
         <div class="md-toolbar-tools">
           <span class="m-r-20">Contents</span>
-          <button type="button" class="btn btn-primary btn-xs">
+          <button type="button"
+                  class="btn btn-primary tip btn-xs"
+                  data-toggle="tooltip"
+                  data-original-title="Help?"
+                  ui-jq="tooltip"
+                  ng-click="vm.help_content()">
             <i class="fa fa-question" aria-hidden="true"></i>
           </button>
         </div>
@@ -88,8 +106,29 @@
               <td md-cell>{{post.shares}}</td>
               <td md-cell>{{post.comments}}</td>
               <td md-cell>
-                <button type="button" class="btn btn-complete btn-xs" ng-click="vm.see(post)">
+                <button type="button"
+                        class="btn btn-complete tip btn-xs"
+                        data-toggle="tooltip"
+                        data-original-title="See content"
+                        ui-jq="tooltip"
+                        ng-click="vm.see(post)">
                   <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-complete tip btn-xs"
+                        data-toggle="tooltip"
+                        data-original-title="Analytics"
+                        ui-jq="tooltip"
+                        ng-click="vm.graph(post)">
+                  <i class="fa fa-line-chart" aria-hidden="true"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-complete tip btn-xs"
+                        data-toggle="tooltip"
+                        data-original-title="Add to database"
+                        ui-jq="tooltip"
+                        ng-click="vm.addDatabase(post)">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </td>
 
@@ -101,20 +140,81 @@
 
 </div>
 
+<div class="modal fade slide-up disable-scroll" id="modalPoolHelp" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog ">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                  <h5>Hack Pool Help</h5>
+                  <span class="sub-title">How Hack Pool table work?</span>
+                </div>
+                <div class="modal-body">
+                  <p>Hack Pool, will have all those facebook pages which the user wants to listening for it contents
+                  The pages can be paused and resumed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade slide-up disable-scroll" id="modalContentHelp" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog ">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                  <h5>Content Help</h5>
+                  <span class="sub-title">How Content table work?</span>
+                </div>
+                <div class="modal-body">
+                  <p>Content table, will get contents from pages that are in the hack pool on listening mode.
+                  However, It's a near real time application getting only those content within an hour ago, once
+                  it find a content, every 5 seconds update all contents and look for more. Will be update numbers of likes, shares and comments.</p>
+
+                  <img src="../images/steps-steps.png" alt="Steps of how Contents table work" class="hidden-xs hidden-sm"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade slide-up disable-scroll" id="modalContent" tabindex="-1" role="dialog" aria-hidden="false">
     <div class="modal-dialog ">
         <div class="modal-content-wrapper">
             <div class="modal-content">
                 <div class="modal-header clearfix text-left">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                    <h5>Content <span class="semi-bold">Information</span></h5>
-                    <p class="p-b-10">TODO</p>
+                    <div class="content-see col-xs-12">
+                      <div class="thumbnail-wrapper d64 circular">
+                        <img width="40" height="40" ng-src="{{vm.selected.page.picture}}" alt="{{page.name}} Picture"/>
+                      </div>
+                      <div class="col-xs-8">
+                        <h5>{{vm.selected.page.name}}</h5>
+                        <span class="sub-title">{{vm.selected.page.fan_count | number}}
+                          <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </span>
+                      </div>
+
+                    </div>
                 </div>
                 <div class="modal-body">
-                    IN PROGRESS...
+                  <div ng-show="vm.selected.type ==  'photo'">
+                    <img ng-src="{{vm.selected.full_picture}}" width="548" height="350" alt="Image of content" />
+                  </div>
+
+                  <div ng-show="vm.selected.type === 'link'">
+                    <p>{{vm.selected.message}}</p>
+                    <img ng-src="{{vm.selected.full_picture}}" alt="Image of content" width="548" height="350" />
+                    <a ng-href="{{vm.selected.link}}" target="_blank" tabindex="1">Content</a>
+                  </div>
+
+                  <div ng-show="vm.selected.type === 'video'">
+                    <iframe  target="_top" class="youtube-player" type="text/html" width="548" height="350" ng-src="{{vm.trustSrc()}}" allowfullscreen frameborder="0">
+                  </div>
+
                 </div>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
 </div>

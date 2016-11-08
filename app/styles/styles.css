@@ -148,3 +148,13 @@ input[value="off"] {
 .footer-label {
   color: #565656 !important;
   opacity: 1 !important; }
+
+.content-see {
+  margin-bottom: -10px;
+  margin-top: 20px;
+  padding: 0px;
+  border-bottom: 1px solid; }
+
+.thumbnail-wrapper.d64 {
+  width: 64px;
+  height: 64px; }

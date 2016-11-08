@@ -3,17 +3,20 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', 'user', 'facebook', 'notification', 'pool', '$state'];
+    DashboardCtrl.$inject = ['$scope', 'user', 'facebook', 'notification', 'pool', 'config', '$state'];
 
-    function DashboardCtrl($scope, user, facebook, notification, pool, $state){
+    function DashboardCtrl($scope, user, facebook, notification, pool, config, $state){
       var vm = this;
 
       vm.searchBox = searchBox;
       vm.hack = hack;
-
+      vm.logout = logout;
+      vm.auto = auto;
+      
       activate();
 
       function activate() {
+        vm.automactly = config.get_auto();
         vm.limit = facebook.get_limit();
         vm.user = user.current();
       }
@@ -49,6 +52,15 @@
           notification.show('Page ' + page.name + ' Already Exist!!!');
       }
 
+      function logout() {
+        firebase.auth().signOut()
+        user.logout();
+        notification.show('First rule: You do not talk about Facehack, second rule: You do not talk about Facehack.');
+        $state.go('core.login');
+      }
 
+      function auto(){
+        config.set_auto(vm.automactly);
+      }
     }
 })();

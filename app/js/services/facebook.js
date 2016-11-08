@@ -1,8 +1,8 @@
 (function () {
     'use strict';
-    angular.module('app').factory('facebook', [ 'notification',
+    angular.module('app').factory('facebook', [ 'notification', 'config',
 
-    function(notification){
+    function(notification, config){
 
       var expression;
       var target;
@@ -44,7 +44,7 @@
                 page.cover = response.cover.source;
               page.fan_count = response.fan_count;
               page.picture = response.picture.data.url;
-              page.isPaused = false;
+              page.isPaused = config.get_auto();
               resolve(page);
             } else {
               notification.show('Something went wrong!');
@@ -65,7 +65,8 @@
           link          : data.link         ? data.link : '',
           message       : data.message      ? data.message : '',
           shares        : data.shares       ? data.shares.count : 0,
-          type          : data.type         ? data.type : ''
+          type          : data.type         ? data.type : '',
+          source        : data.source       ? data.source : ''
         }
         // content.shares
 
@@ -82,6 +83,8 @@
                   if(isHourAgo(post))
                     resolve(post);
                   resolve();
+                } else {
+                  notification.show(''+response.error)
                 }
             });
         });
@@ -103,7 +106,7 @@
       function updata_content(content){
         return new Promise(function(resolve, reject) {
           FB.api(
-          "/" + content.id + "?fields=comments.limit(0).summary(true),likes.limit(0).summary(true),shares.limit(0).summary(true),full_picture,link",
+          "/" + content.id + "?fields=source,comments.limit(0).summary(true),likes.limit(0).summary(true),shares.limit(0).summary(true),full_picture,link",
           function (response) {
               if (response && !response.error) {
                 content.full_picture  = response.full_picture || content.full_picture;
@@ -111,7 +114,10 @@
                 content.link          = response.link || content.link;
                 content.comments      = response.comments.summary.total_count || content.comments;
                 content.shares        = response.shares ? response.shares.count : content.shares;
+                content.source        = response.source ? response.source : content.source;
                 resolve(content);
+              } else {
+                notification.show(''+response.error)
               }
           });
         });

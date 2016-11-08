@@ -5,6 +5,5 @@ angular.module('app', [
     'ui.utils',
     'ngMaterial',
     'md.data.table',
-    'chart.js',
     'firebase'
 ]);

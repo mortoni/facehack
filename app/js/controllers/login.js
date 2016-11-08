@@ -31,7 +31,14 @@
       }
 
       function login_mobile() {
+        firebase.auth().signInWithRedirect(provider);
+
         firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // ...
+          }
           user.set(result.user);
           $window.fbAsyncInit();
           notification.show('Yoo HACKER be welcome!');
@@ -39,6 +46,16 @@
         }).catch(function(error) {
           notification.show('GO AWAY! You are not a HACKER.' + error.message);
         });
+
+
+        // firebase.auth().getRedirectResult().then(function(result) {
+        //   user.set(result.user);
+        //   $window.fbAsyncInit();
+        //   notification.show('Yoo HACKER be welcome!');
+        //   $state.go('app.dashboard');
+        // }).catch(function(error) {
+        //   notification.show('GO AWAY! You are not a HACKER.' + error.message);
+        // });
       }
 
       $window.fbAsyncInit = function() {

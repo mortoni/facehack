@@ -30,7 +30,7 @@
     </form>
   </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="page in vm.pages" style="padding: 0;" ng-if="page.cover">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="page in vm.pages | orderBy: 'fan_count':true" style="padding: 0;" ng-if="page.cover">
     <md-card md-theme-watch>
       <md-card-title>
         <md-card-title-text>

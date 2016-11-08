@@ -63,7 +63,7 @@ gulp.task('css-min', function() {
                    'app/styles/pages-icons.css',
 								 	 'app/styles/pages.css',
 							 	 	 'app/styles/styles.css'])
-		.pipe(concatCss('styles-1.0.0.min.css'))
+		.pipe(concatCss('styles-1.0.2.min.css'))
     .pipe(cleanCSS({ keepSpecialComments: 1, processImport: false }))
     .pipe(gulp.dest('dist/app/styles'));
 });
@@ -87,6 +87,7 @@ gulp.task('compress', function() {
 								   'node_modules/angular-ui-router/release/angular-ui-router.js',
 								 	 'node_modules/angular-ui-grid/ui-grid.js',
 								 	 'node_modules/jquery.scrollbar/jquery.scrollbar.js',
+									 'node_modules/bootstrap/dist/js/bootstrap.min.js',
 									 'app/js/lib/ui.utils.min.js',
 									 'app/js/lib/jquery.ioslist.min.js',
 									 'app/js/lib/jquery.unveil.min.js',
@@ -106,7 +107,7 @@ gulp.task('compress', function() {
 									 'app/js/controllers/*.js',
 									 'app/js/services/*.js',
 									 'app/js/directives/*.js'])
-    .pipe(concat('bundle-1.0.0.js'))
+    .pipe(concat('bundle-1.0.4.js'))
     .pipe(ngmin())
     .pipe(gulp.dest('dist/app/js'))
     .pipe(rename({suffix: '.min'}))

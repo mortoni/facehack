@@ -5,6 +5,12 @@
     "angular-material-data-table": "^0.10.9",
     "angular-chart.js": "^1.0.3",
     "angularfire": "^2.1.0",
-    "angular-material": "^1.1.1"
+    "angular-material": "^1.1.1",
+    "font-awesome": "^4.7.0",
+    "angular-ui-router": "^0.3.2",
+    "angular-ui-grid": "^3.2.9",
+    "jquery.scrollbar": "^0.2.11",
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
   }
 }

@@ -4557,7 +4557,7 @@ body > .pgn-wrapper {
 ------------------------------------
 */
 .progress-circle-indeterminate {
-  background: url('../images/progress/progress-circle-master.svg') no-repeat top left;
+  background: url('../img/progress/progress-circle-master.svg') no-repeat top left;
   width: 50px;
   height: 50px;
   background-size: 100% auto;
@@ -4651,7 +4651,7 @@ body > .pgn-wrapper {
 .modal .modal-header {
   text-align: center;
   border-bottom: 0;
-  padding: 25px 25px 12px 25px;
+  padding: 25px 25px 0 25px;
 }
 .modal .modal-header p {
   color: #8b91a0;
@@ -10505,11 +10505,11 @@ Main components
   height: 70px;
   top: -70px;
 }
-/*@media (max-width: 920px) {
+@media (max-width: 920px) {
   .gallery-item.first {
     display: none;
   }
-}*/
+}
 @media (max-width: 767px) {
   .item-details .dialog__content {
     height: 90%;
@@ -10579,7 +10579,7 @@ Main components
 }
 .mapplic-container .mapplic-fullscreen-button {
   left: auto;
-  right: 0px;
+  right: 154px;
   bottom: 0;
   top: auto;
 }
@@ -10587,6 +10587,7 @@ Main components
   visibility: hidden;
 }
 .mapplic-tooltip:before {
+  content: "Location";
   font-size: 12px;
   margin: 0;
   line-height: normal;
@@ -10606,9 +10607,9 @@ Main components
   color: #626262;
   opacity: .7;
 }
-/*.mapplic-tooltip-title {
+.mapplic-tooltip-title {
   display: none;
-}*/
+}
 .mapplic-tooltip-content {
   margin-top: 5px;
 }
@@ -10632,80 +10633,80 @@ Main components
   z-index: 1;
 }
 .mapplic-pin {
-  background-image: url('../images/maps/marker-master.svg');
+  background-image: url('../../assets/img/maps/marker-master.svg');
   background-size: contain;
 }
 .mapplic-pin.pulse {
-  background-image: url('../../images/maps/pulse-master.svg');
+  background-image: url('../../assets/img/maps/pulse-master.svg');
 }
 .mapplic-pin.pulse.green {
-  background-image: url('../images/maps/pulse-success.svg');
+  background-image: url('../../assets/img/maps/pulse-success.svg');
 }
 .mapplic-pin.pulse.blue {
-  background-image: url('../images/maps/pulse-complete.svg');
+  background-image: url('../../assets/img/maps/pulse-complete.svg');
 }
 .mapplic-pin.pulse.purple {
-  background-image: url('../images/maps/pulse-primary.svg');
+  background-image: url('../../assets/img/maps/pulse-primary.svg');
 }
 .mapplic-pin.pulse.yellow {
-  background-image: url('../images/maps/pulse-warning.svg');
+  background-image: url('../../assets/img/maps/pulse-warning.svg');
 }
 .mapplic-pin.pulse.red {
-  background-image: url('../images/maps/pulse-danger.svg');
+  background-image: url('../../assets/img/maps/pulse-danger.svg');
 }
 .mapplic-pin.pulse-alt {
-  background-image: url('../images/maps/pulse-alt-master.svg');
+  background-image: url('../../assets/img/maps/pulse-alt-master.svg');
 }
 .mapplic-pin.pulse-alt.green {
-  background-image: url('../images/maps/pulse-alt-success.svg');
+  background-image: url('../../assets/img/maps/pulse-alt-success.svg');
 }
 .mapplic-pin.pulse-alt.blue {
-  background-image: url('../images/maps/pulse-alt-complete.svg');
+  background-image: url('../../assets/img/maps/pulse-alt-complete.svg');
 }
 .mapplic-pin.pulse-alt.purple {
-  background-image: url('../images/maps/pulse-alt-primary.svg');
+  background-image: url('../../assets/img/maps/pulse-alt-primary.svg');
 }
 .mapplic-pin.pulse-alt.yellow {
-  background-image: url('../images/maps/pulse-alt-warning.svg');
+  background-image: url('../../assets/img/maps/pulse-alt-warning.svg');
 }
 .mapplic-pin.pulse-alt.red {
-  background-image: url('../images/maps/pulse-alt-danger.svg');
+  background-image: url('../../assets/img/maps/pulse-alt-danger.svg');
 }
 .mapplic-pin.marker {
-  background-image: url('../images/maps/marker-master.svg');
+  background-image: url('../../assets/img/maps/marker-master.svg');
 }
 .mapplic-pin.marker.green {
-  background-image: url('../images/maps/marker-success.svg');
+  background-image: url('../../assets/img/maps/marker-success.svg');
 }
 .mapplic-pin.marker.blue {
-  background-image: url('../images/maps/marker-complete.svg');
+  background-image: url('../../assets/img/maps/marker-complete.svg');
 }
 .mapplic-pin.marker.purple {
-  background-image: url('../images/maps/marker-primary.svg');
+  background-image: url('../../assets/img/maps/marker-primary.svg');
 }
 .mapplic-pin.marker.yellow {
-  background-image: url('../images/maps/marker-warning.svg');
+  background-image: url('../../assets/img/maps/marker-warning.svg');
 }
 .mapplic-pin.marker.red {
-  background-image: url('../images/maps/marker-danger.svg');
+  background-image: url('../../assets/img/maps/marker-danger.svg');
 }
 .mapplic-pin.marker-alt {
-  background-image: url('../images/maps/marker-alt-master.svg');
+  background-image: url('../../assets/img/maps/marker-alt-master.svg');
 }
 .mapplic-pin.marker-alt.green {
-  background-image: url('../images/maps/marker-alt-success.svg');
+  background-image: url('../../assets/img/maps/marker-alt-success.svg');
 }
 .mapplic-pin.marker-alt.blue {
-  background-image: url('../images/maps/marker-alt-complete.svg');
+  background-image: url('../../assets/img/maps/marker-alt-complete.svg');
 }
 .mapplic-pin.marker-alt.purple {
-  background-image: url('../images/maps/marker-alt-primary.svg');
+  background-image: url('../../assets/img/maps/marker-alt-primary.svg');
 }
 .mapplic-pin.marker-alt.yellow {
-  background-image: url('../images/maps/marker-alt-warning.svg');
+  background-image: url('../../assets/img/maps/marker-alt-warning.svg');
 }
 .mapplic-pin.marker-alt.red {
-  background-image: url('../images/maps/marker-alt-danger.svg');
+  background-image: url('../../assets/img/maps/marker-alt-danger.svg');
 }
 /*------------------------------------------------------------------
 [27. Pricing]
@@ -10807,7 +10808,7 @@ Main components
   opacity: .69;
 }
 .widget-1:after {
-  background-image: url("../images/dashboard/pages_hero.jpg");
+  background-image: url("../../assets/img/dashboard/pages_hero.jpg");
   background-size: cover;
   content: " ";
   left: 0;
@@ -10848,7 +10849,7 @@ Main components
   background: rgba(255, 255, 255, 0.3);
 }
 .widget-2:after {
-  background-image: url("../images/social/person-cropped.jpg");
+  background-image: url("../../assets/img/social/person-cropped.jpg");
 }
 .widget-3 a {
   text-decoration: none;
@@ -11057,7 +11058,7 @@ Main components
 }
 .widget-18-post {
   height: 342px;
-  background: url('../images/social/quote.jpg');
+  background: url('../../assets/img/social/quote.jpg');
   background-position: center center;
   background-size: cover;
 }
@@ -12376,7 +12377,7 @@ Main components
   opacity: 0.87;
 }
 .builder a.active:before {
-  background-image: url('../images//demo/tick.svg');
+  background-image: url('../../assets/img//demo/tick.svg');
   width: 23px;
   height: 23px;
   content: '';

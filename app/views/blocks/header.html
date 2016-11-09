@@ -1,30 +1,21 @@
-<!-- START HEADER -->
-<div class="header " ng-class="{'transparent': is('app.maps.vector') || is('app.maps.google') }" ng-controller="DashboardCtrl as vm">
-    <!-- START MOBILE CONTROLS -->
+
+<div class="header " ng-controller="DashboardCtrl as vm">
     <div class="container-fluid relative">
-      <!-- LEFT SIDE -->
       <div class="pull-left full-height visible-sm visible-xs">
-        <!-- START ACTION BAR -->
         <div class="header-inner">
           <a href="#" class="btn-link toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5" data-toggle="sidebar">
             <i class="fa fa-bars" aria-hidden="true"></i>
           </a>
         </div>
-        <!-- END ACTION BAR -->
       </div>
       <div class="pull-center hidden-md hidden-lg">
         <div class="header-inner">
           <div class="brand inline">
-            <!-- <img alt="Facehack Logo" src="../images/facehack.png"> -->
             <img alt="Facehack Logo" src="../images/facehack2.png" height="60" width="60">
-
-
           </div>
         </div>
       </div>
-      <!-- RIGHT SIDE -->
     </div>
-    <!-- END MOBILE CONTROLS -->
     <div class=" pull-left sm-table hidden-xs hidden-sm">
         <div class="header-inner">
             <div class="brand inline">
@@ -43,7 +34,6 @@
     </div>
 
     <div class=" pull-right">
-        <!-- START User Info-->
         <div class="visible-lg visible-md m-t-10">
             <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
                 <span class="semi-bold">{{vm.user.displayName}}</span>
@@ -82,7 +72,5 @@
                 </ul>
             </div>
         </div>
-        <!-- END User Info-->
     </div>
 </div>
-<!-- END HEADER -->

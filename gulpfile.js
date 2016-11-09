@@ -1,158 +1,61 @@
-'use strict';
+var gulp = require( 'gulp' );
+var browserSync = require( 'browser-sync' ).create();
+var requireDir = require( 'require-dir' );
+var dir = requireDir( './tasks' );
+var del = require( 'del' );
 
-var path = require('path');
-var gulp = require('gulp');
-var less = require('gulp-less');
-var clean = require('gulp-clean');
-var browserSync = require('browser-sync');
-var concatCss = require('gulp-concat-css');
-var cleanCSS = require('gulp-clean-css');
-var concat = require('gulp-concat');
-var ngmin = require('gulp-ngmin');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-var htmlmin = require('gulp-htmlmin');
-var sass = require('gulp-sass');
-
-//CONFIG PATHS
-var config = {
-	pages  : './pages',
-	assets : './assets',
-	build:'./dist'
+var dir = {
+	dev  : 'app',
+	dist : 'dist'
 };
 
-//TASKS
-gulp.task('serve', function() {
-    browserSync.init({
+gulp.task('default', function() {
+ console.log( "\Facehack - Gulp Command List \n" );
+ console.log( "----------------------------\n" );
+ console.log( "gulp serve       - run application" );
+ console.log( "gulp dist:serve  - run distribution(dist) application" );
+ console.log( "gulp build       - build dist\n" );
+ console.log( "----------------------------\n" );
+});
+
+gulp.task( 'browser-sync', () => {
+    browserSync.init( {
         server: {
-						baseDir: ["app"],
+            baseDir: dir.dev,
             index: "index.html",
             routes: {
                 "/node_modules": "node_modules",
 								"/bower_components": "bower_components"
             }
         }
-    });
+    } );
+} );
 
-    console.log('## server started ##');
+gulp.task( 'serve', [ 'browser-sync' ], () => {
+    gulp.watch( './app/**/*.scss', [ 'styles' ] ).on( 'change', browserSync.reload );
 
-    gulp.watch('app/**/*').on('change', browserSync.reload);
-		gulp.watch('app/styles/**/*.scss', ['sass']);
-    gulp.watch('app/**/*.js').on('change', function(event) {
-        console.log("Linting " + event.path);
-    });
-});
+    gulp.watch( [
+        './app/**/*.js',
+        './app/**/*.html'
+    ] ).on( 'change', browserSync.reload );
 
-gulp.task('less', function () {
-  gulp.src(config.pages+'/less/pages.less')
-    .pipe(less({
-      paths: [config.pages+'/less/']
-    }))
-    .pipe(gulp.dest(config.pages+'/css/'));
-});
+} );
 
-gulp.task('build', ['css-min', 'ico', 'compress', 'pages', 'images', 'fonts-awesome']);
-
-gulp.task('css-min', function() {
-  return gulp.src(['node_modules/pace-progress/themes/red/pace-theme-flash.css',
-                   'node_modules/bootstrap/dist/css/bootstrap.min.css',
-                   'node_modules/font-awesome/css/font-awesome.min.css',
-                   'node_modules/jquery.scrollbar/jquery.scrollbar.css',
-                   'bower_components/angular-material/angular-material.min.css',
-                   'bower_components/angular-material-data-table/dist/md-data-table.min.css',
-                   'app/styles/pages-icons.css',
-								 	 'app/styles/pages.css',
-							 	 	 'app/styles/styles.css'])
-		.pipe(concatCss('styles-1.0.2.min.css'))
-    .pipe(cleanCSS({ keepSpecialComments: 1, processImport: false }))
-    .pipe(gulp.dest('dist/app/styles'));
-});
-
-
-gulp.task('default', function() {
- console.log( "\Dashboard - Gulp Command List \n" );
- console.log( "----------------------------\n" );
- console.log( "gulp serve" );
- console.log( "gulp watch" );
- console.log( "gulp less" );
- console.log( "gulp dist:test" );
- console.log( "gulp build \n" );
- console.log( "----------------------------\n" );
-});
-
-gulp.task('compress', function() {
-  return gulp.src(['bower_components/firebase/firebase.js',
-									 'node_modules/jquery/dist/jquery.min.js',
-									 'node_modules/angular/angular.js',
-								   'node_modules/angular-ui-router/release/angular-ui-router.js',
-								 	 'node_modules/angular-ui-grid/ui-grid.js',
-								 	 'node_modules/jquery.scrollbar/jquery.scrollbar.js',
-									 'node_modules/bootstrap/dist/js/bootstrap.min.js',
-									 'app/js/lib/ui.utils.min.js',
-									 'app/js/lib/jquery.ioslist.min.js',
-									 'app/js/lib/jquery.unveil.min.js',
-									 'app/js/lib/modernizr.custom.js',
-									 'app/js/lib/pages.js',
-									 'bower_components/angular-animate/angular-animate.min.js',
-									 'bower_components/angular-aria/angular-aria.min.js',
-									 'bower_components/angular-material/angular-material.min.js',
-									 'bower_components/angular-material-data-table/dist/md-data-table.min.js',
-									 'bower_components/chart.js/dist/Chart.min.js',
-									 'bower_components/angular-chart.js/dist/angular-chart.min.js',
-									 'bower_components/angularfire/dist/angularfire.min.js',
-									 'app/app.js',
-									 'app/config.js',
-									 'app/routes.js',
-									 'app/main.js',
-									 'app/js/controllers/*.js',
-									 'app/js/services/*.js',
-									 'app/js/directives/*.js'])
-    .pipe(concat('bundle-1.0.4.js'))
-    .pipe(ngmin())
-    .pipe(gulp.dest('dist/app/js'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify({mangle: false}))
-    .pipe(gulp.dest('dist/app/js'));
-});
-
-gulp.task('dist:test', function() {
+gulp.task('dist:serve', function() {
     browserSync.init({
         server: {
-            baseDir: ["dist/app"],
+            baseDir: [dir.dist + "/app"],
             index: "index.html"
         }
     });
-
-    console.log('## test server started ##');
 });
 
-gulp.task('pages', function() {
-  gulp.src(['app/views/**/*'])
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist/app/views'));
-});
+gulp.task( 'build', [ 'clean' ], () => {
+    gulp.start( 'html', 'assets' );
+} );
 
-gulp.task('images', function() {
-  gulp.src(['app/images/**/*'])
-      .pipe(gulp.dest('dist/app/images'));
-});
-
-gulp.task('fonts-awesome', function() {
-  gulp.src(['node_modules/font-awesome/fonts/**/*'])
-      .pipe(gulp.dest('dist/app/font-awesome/fonts'));
-});
-
-gulp.task('ico', function() {
-  gulp.src(['app/facehack.ico'])
-      .pipe(gulp.dest('dist/app'));
-});
-
-gulp.task('sass', function () {
-  return gulp.src('app/styles/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('app/styles'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('app/styles/**/*.scss', ['sass']);
-});
+gulp.task( 'clean', ( done ) => {
+    return del( [ dir.dist + '/**/*' ], { force: true }, ( err, paths ) => {
+        done( err );
+    } );
+} );

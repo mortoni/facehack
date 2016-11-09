@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="app" ng-controller="AppCtrl">
+<html lang="en" data-ng-app="app">
 
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -15,33 +15,23 @@
 
     <link rel="icon" type="image/ico" href="facehack.ico"/>
 
-    <link rel="stylesheet" href="node_modules/pace-progress/themes/red/pace-theme-flash.css"/>
+    <!--build:css(.) css/vendor.min.css -->
+    <!-- <link rel="stylesheet" href="node_modules/pace-progress/themes/red/pace-theme-flash.css"/> -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="node_modules/jquery.scrollbar/jquery.scrollbar.css"/>
-
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css"/>
-
-    <link rel="stylesheet" href="styles/pages-icons.css"/>
-    <link rel="stylesheet" href="styles/pages.css"/>
-    <link rel="stylesheet" href="styles/styles.css"/>
+    <!-- endbuild -->
+    <!-- build:css css/main.min.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
 </head>
-
-<body class="fixed-header" ng-class="{'bg-master-lighter': is('app.extra.timeline'),
-                                      'no-header': is('app.social') || is('app.calendar') || is('app.maps.vector') || is('app.maps.google'),
-                                      'menu-pin' : app.layout.menuPin || is('boxed'),
-                                      'menu-behind' : app.layout.menuBehind,
-                                      'box-layout' : is('boxed'),
-                                      'horizontal-menu': is('app.layouts.horizontal'),
-                                      'rtl' : is('app.layouts.rtl')}">
-
     <div class="full-height" ui-view></div>
-
-
     <script src="https://connect.facebook.net/en_US/sdk.js"></script>
-    <script src="bower_components/firebase/firebase.js"></script>
 
+    <!-- build:js(.) js/bundle.min.js -->
+    <script src="bower_components/firebase/firebase.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
@@ -49,22 +39,22 @@
     <script src="node_modules/jquery.scrollbar/jquery.scrollbar.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js js/script.min.js -->
     <script src="js/lib/ui.utils.min.js"></script>
     <script src="js/lib/jquery.ioslist.min.js"></script>
     <script src="js/lib/jquery.unveil.min.js"></script>
     <script src="js/lib/modernizr.custom.js"></script>
     <script src="js/lib/pages.js"></script>
 
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="bower_components/angular-material/angular-material.min.js"></script>
-    <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
-    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-
-    <script src="app.js"></script>
-    <script src="config.js"></script>
-    <script src="routes.js"></script>
-    <script src="main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/routes.js"></script>
 
     <script src="js/controllers/login.js"></script>
     <script src="js/controllers/dashboard.js"></script>
@@ -91,6 +81,6 @@
     <script src="js/directives/pg-horizontal-menu.js"></script>
     <script src="js/directives/pg-tab-dropdownfx.js"></script>
     <script src="js/directives/skycons.js"></script>
-
+    <!-- endbuild -->
   </body>
 </html>

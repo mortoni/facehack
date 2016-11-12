@@ -18,15 +18,6 @@
     <link rel="stylesheet" href="css/vendor.min.css">
     <link rel="stylesheet" href="css/main.min.css">
 </head>
-<!-- TODO: REMOVE -->
-<body class="fixed-header" ng-class="{'bg-master-lighter': is('app.extra.timeline'),
-                                      'no-header': is('app.social') || is('app.calendar') || is('app.maps.vector') || is('app.maps.google'),
-                                      'menu-pin' : app.layout.menuPin || is('boxed'),
-                                      'menu-behind' : app.layout.menuBehind,
-                                      'box-layout' : is('boxed'),
-                                      'horizontal-menu': is('app.layouts.horizontal'),
-                                      'rtl' : is('app.layouts.rtl')}">
-
     <div class="full-height" ui-view></div>
     <script src="https://connect.facebook.net/en_US/sdk.js"></script>
 

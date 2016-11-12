@@ -24,7 +24,7 @@
 
       function activate() {
         vm.posts = pool.get_content();
-        run();
+        //here
       }
 
       function resume(page) {
@@ -60,35 +60,12 @@
         $('#modalPoolHelp').children('.modal-dialog').removeClass('modal-lg');
       }
 
-      function run() {
-        setInterval(function() {
-          vm.pages.forEach(function(p) {
-            if(p.isPaused) {
-              facebook.get_content(p).then(function(data){
-                if(data) {
-                  if(pool.is_content(data)){
-                    pool.add_content(data);
-                    notification.show('Found a new Content');
-                  } else {
-                    facebook.updata_content(data).then(function(content) {
-                      pool.update(content);
-                    });
-                  }
-                  vm.posts = pool.get_content();
-                  $scope.$apply();
-                }
-              });
-            }
-          });
-        }, 5000);
-      }
-
       function graph(content) {
 
       }
 
       function addDatabase(content) {
-        
+
       }
     }
 })();

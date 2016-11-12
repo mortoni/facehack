@@ -36,7 +36,8 @@ gulp.task( 'serve', [ 'browser-sync' ], () => {
 
     gulp.watch( [
         './app/**/*.js',
-        './app/**/*.html'
+        './app/**/*.html',
+				'./app/**/*.scss'
     ] ).on( 'change', browserSync.reload );
 
 } );

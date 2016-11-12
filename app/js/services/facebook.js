@@ -4,10 +4,10 @@
 
     function(notification, config){
 
-      var expression;
+      // var expression;
       var target;
       var limit = 15;
-      var pages = [];
+      var pages;
 
       function set_exp(e) {expression = e;}
       function get_exp() {return expression;}
@@ -18,7 +18,7 @@
       function get_pages() {return pages;}
 
 
-      function search() {
+      function search(expression) {
         return new Promise(function(resolve, reject) {
           FB.api("/search?q=" + expression + "&type=page&limit=" + limit,
           function (response) {

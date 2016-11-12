@@ -1,0 +1,45 @@
+<nav class="page-sidebar" data-pages="sidebar">
+  <div class="sidebar-overlay-slide from-top" id="appMenu">
+    <div class="row">
+    </div>
+
+  </div>
+  <div class="sidebar-header">
+    <img alt="Udacity Logo" src="../images/logo.svg" width="78" height="22">
+    <div class="pull-right m-r-35">
+      <button type="button"
+              class="btn btn-link visible-lg-inline"
+              data-toggle-pin="sidebar"
+              tabindex="-1"
+              aria-label="Click here to fix sidebac on screen">
+              <i class="fa fs-12"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="sidebar-menu">
+    <ul class="menu-items">
+      <li class="m-t-30 open" ui-sref-active="active">
+        <a ui-sref="app.dashboard" class="detailed">
+          <span class="title">Dashboard</span>
+        </a>
+        <span class="icon-thumbnail" ng-class="{'bg-complete': vm.$state.current.name == 'app.dashboard'}"><i class="fa fa-tachometer" aria-hidden="true"></i></span>
+      </li>
+
+      <li class="open" ui-sref-active="active">
+        <a ui-sref="app.hack" class="detailed">
+          <span class="title">Pool</span>
+        </a>
+        <span class="icon-thumbnail" ng-class="{'bg-complete': vm.$state.current.name == 'app.hack'}"><i class="fa fa-diamond" aria-hidden="true"></i></span>
+      </li>
+
+      <li class="open" ui-sref-active="active">
+        <a ui-sref="app.content" class="detailed">
+          <span class="title">Contents</span>
+        </a>
+        <span class="icon-thumbnail" ng-class="{'bg-complete': vm.$state.current.name == 'app.contents'}"><i class="fa fa-database" aria-hidden="true"></i></span>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+</nav>

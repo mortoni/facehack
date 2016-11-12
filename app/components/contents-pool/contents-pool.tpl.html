@@ -1,0 +1,133 @@
+<div class="col-xs-12 -col-sm-12 col-md-8">
+    <md-toolbar class="md-table-toolbar md-default bk-trans">
+      <div class="md-toolbar-tools">
+        <span class="m-r-20">Contents Pool</span>
+        <button type="button"
+                class="btn btn-primary tip btn-xs"
+                data-toggle="tooltip"
+                data-original-title="Help?"
+                ui-jq="tooltip"
+                ng-click="vm.help()">
+          <i class="fa fa-question" aria-hidden="true"></i>
+        </button>
+      </div>
+    </md-toolbar>
+
+    <md-table-container>
+      <table data-md-table md-progress="vm.promise">
+        <thead md-head data-md-order="vm.query.order" md-on-reorder="vm.onReorder">
+          <tr md-row>
+            <th md-column><span>Time</span></th>
+            <th md-column><span>Page</span></th>
+            <th md-column><span>Type</span></th>
+            <th md-column><span>Likes</span></th>
+            <th md-column><span>Shares</span></th>
+            <th md-column><span>Comments</span></th>
+            <th md-column><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row data-ng-repeat="post in vm.posts" >
+            <td md-cell>{{post.created_time | date:"h:mma"}}</td>
+            <td md-cell>{{post.page.name}}</td>
+            <td md-cell>
+              <i class="fa fa-film" aria-hidden="true" ng-if="post.type === 'video'"></i>
+              <i class="fa fa-link" aria-hidden="true" ng-if="post.type === 'link'"></i>
+              <i class="fa fa-picture-o" aria-hidden="true" ng-if="post.type === 'photo'"></i>
+            </td>
+            <td md-cell>{{post.likes}}</td>
+            <td md-cell>{{post.shares}}</td>
+            <td md-cell>{{post.comments}}</td>
+            <td md-cell>
+              <button type="button"
+                      class="btn btn-complete tip btn-xs"
+                      data-toggle="tooltip"
+                      data-original-title="See content"
+                      ui-jq="tooltip"
+                      ng-click="vm.see(post)">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </button>
+              <button type="button"
+                      class="btn btn-complete tip btn-xs"
+                      data-toggle="tooltip"
+                      data-original-title="Analytics"
+                      ui-jq="tooltip"
+                      ng-click="vm.graph(post)">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+              </button>
+              <button type="button"
+                      class="btn btn-complete tip btn-xs"
+                      data-toggle="tooltip"
+                      data-original-title="Add to database"
+                      ui-jq="tooltip"
+                      ng-click="vm.addDatabase(post)">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+</div>
+
+<div class="modal fade slide-up disable-scroll" id="modalContentHelp" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog ">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                  <h5>Content Help</h5>
+                  <span class="sub-title">How Content table work?</span>
+                </div>
+                <div class="modal-body">
+                  <p>Content table, will get contents from pages that are in the hack pool on listening mode.
+                  However, It's a near real time application getting only those content within an hour ago, once
+                  it find a content, every 5 seconds update all contents and look for more. Will be update numbers of likes, shares and comments.</p>
+
+                  <img src="../images/steps-steps.png" alt="Steps of how Contents table work" class="hidden-xs hidden-sm"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade slide-up disable-scroll" id="modalContent" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog ">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <div class="content-see col-xs-12">
+                      <div class="thumbnail-wrapper d64 circular">
+                        <img width="40" height="40" ng-src="{{vm.selected.page.picture}}" alt="{{page.name}} Picture"/>
+                      </div>
+                      <div class="col-xs-8">
+                        <h5>{{vm.selected.page.name}}</h5>
+                        <span class="sub-title">{{vm.selected.page.fan_count | number}}
+                          <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </span>
+                      </div>
+
+                    </div>
+                </div>
+                <div class="modal-body">
+                  <div ng-show="vm.selected.type ==  'photo'">
+                    <img ng-src="{{vm.selected.full_picture}}" width="548" height="350" alt="Image of content" />
+                  </div>
+
+                  <div ng-show="vm.selected.type === 'link'">
+                    <p>{{vm.selected.message}}</p>
+                    <img ng-src="{{vm.selected.full_picture}}" alt="Image of content" width="548" height="350" />
+                    <a ng-href="{{vm.selected.link}}" target="_blank" tabindex="1">Content</a>
+                  </div>
+
+                  <div ng-show="vm.selected.type === 'video'">
+                    <iframe  target="_top" class="youtube-player" type="text/html" width="548" height="350" ng-src="{{vm.trustSrc()}}" allowfullscreen frameborder="0">
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

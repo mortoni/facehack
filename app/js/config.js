@@ -1,6 +1,7 @@
 (function(){
      'use strict';
-     angular.module('app').run(['$state', 'user', '$rootScope', function($state, user, $rootScope) {
+     angular.module('app').run(['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification',
+     function($state, user, $rootScope, pool, facebook, notification) {
        // Initialize Firebase
        // Initialize Firebase
         var config = {
@@ -21,6 +22,27 @@
             $state.go('core.login');
           }
         });
+
+        setInterval(function() {
+          var pages = pool.get();
+
+          pages.forEach(function(p) {
+            if(p.isPaused) {
+              facebook.get_content(p).then(function(data){
+                if(data) {
+                  if(pool.is_content(data)){
+                    pool.add_content(data);
+                    notification.show('Found a new Content');
+                  } else {
+                    facebook.updata_content(data).then(function(content) {
+                      pool.update(content);
+                    });
+                  }
+                }
+              });
+            }
+          });
+        }, 5000);
 
      }]);
 })();

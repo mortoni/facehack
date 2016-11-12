@@ -5,6 +5,20 @@
       var pages = [];
       var contents = [];
 
+      var observerCallbacks = [];
+
+      //register an observer
+      function registerObserverCallback(callback){
+        observerCallbacks.push(callback);
+      };
+
+      //call this when you know 'foo' has been changed
+      function notifyObservers(){
+        angular.forEach(observerCallbacks, function(callback){
+          callback();
+        });
+      };
+
       function add(p) {
         if(!isExist(p)){
           pages.push(p)
@@ -39,6 +53,7 @@
 
       function add_content(content) {
         contents.push(content);
+        notifyObservers();
       }
 
       function get_content() {
@@ -67,7 +82,8 @@
         add_content : add_content,
         get_content : get_content,
         is_content  : is_content,
-        update      : update
+        update      : update,
+        registerObserverCallback : registerObserverCallback
       };
     });
 })();

@@ -41,7 +41,7 @@
 
       function trustSrc() {
         if(typeof vm.selected !== 'undefined')
-          return $sce.trustAsResourceUrl(vm.selected.source+"?:embed=yes");
+          return $sce.trustAsResourceUrl(vm.selected.source);
       }
 
       function see(content) {

@@ -6,9 +6,11 @@
     restrict: 'E',
     bindings: {},
     templateUrl : 'components/contents-pool/contents-pool.tpl.html',
-    controller: function(pool, $scope) {
+    controller: function(pool, $scope, $sce) {
       var vm = this;
 
+      vm.posts = pool.get_content();
+      
       var update = function(){
         vm.posts = pool.get_content();
         $scope.$apply();
@@ -20,6 +22,7 @@
       vm.see = see;
       vm.graph = graph;
       vm.addDatabase = addDatabase;
+      vm.trustSrc = trustSrc;
 
       function help() {
         $('#modalContentHelp').modal('show');
@@ -38,6 +41,11 @@
 
       function addDatabase(content) {
 
+      }
+
+      function trustSrc() {
+        if(typeof vm.selected !== 'undefined')
+          return $sce.trustAsResourceUrl(vm.selected.source);
       }
 
     }

@@ -1,5 +1,5 @@
 <div class="col-xs-12 -col-sm-12 col-md-8">
-    <md-toolbar class="md-table-toolbar md-default bk-trans">
+    <md-toolbar class="content-table-header md-default bk-trans">
       <div class="md-toolbar-tools">
         <span class="m-r-20">Contents Pool</span>
         <button type="button"
@@ -93,7 +93,7 @@
 </div>
 
 <div class="modal fade slide-up disable-scroll" id="modalContent" tabindex="-1" role="dialog" aria-hidden="false">
-    <div class="modal-dialog ">
+    <div class="modal-dialog">
         <div class="modal-content-wrapper">
             <div class="modal-content">
                 <div class="modal-header clearfix text-left">
@@ -111,7 +111,7 @@
 
                     </div>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body content-body">
                   <div ng-show="vm.selected.type ==  'photo'">
                     <img ng-src="{{vm.selected.full_picture}}" width="548" height="350" alt="Image of content" />
                   </div>

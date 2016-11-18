@@ -3,6 +3,8 @@ var browserSync = require( 'browser-sync' ).create();
 var requireDir = require( 'require-dir' );
 var dir = requireDir( './tasks' );
 var del = require( 'del' );
+var sassLint = require('gulp-sass-lint');
+var eslint = require('gulp-eslint');
 
 var dir = {
 	dev  : 'app',
@@ -18,7 +20,7 @@ gulp.task('default', function() {
  console.log( "----------------------------\n" );
 });
 
-gulp.task( 'browser-sync', () => {
+gulp.task( 'browser-sync', [ 'lint-scss' ], () => {
     browserSync.init( {
         server: {
             baseDir: dir.dev,
@@ -60,3 +62,12 @@ gulp.task( 'clean', ( done ) => {
         done( err );
     } );
 } );
+
+gulp.task('lint-scss', function() {
+  return gulp.src(dir.dev + '/styles/styles.scss')
+						 .pipe(sassLint())
+						 .pipe(sassLint.format())
+						 .pipe(sassLint.failOnError())
+  ;
+
+});

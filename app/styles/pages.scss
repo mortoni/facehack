@@ -1,9 +1,25 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @mortoni
+ Unwatch 1
+  Star 0
+  Fork 0 mortoni/facehack
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathfacehack/app/styles/pages.scss
+d9a9321  10 days ago
+@mortoni mortoni fix: clean up, gulp, js clean, css clean
+1 contributor
+RawBlameHistory
+13737 lines (13731 sloc)  296 KB
 /*------------------------------------------------------------------
 Pages v2.1.5
 Theme : Default
 Generated From LESS
 [Table of contents]
-
 1. Layouts
 2. View Ports
 3. Chat
@@ -9857,9 +9873,7 @@ Responsive Util
   http://codyhouse.co/gem/vertical-timeline/
 */
 /* --------------------------------
-
 Modules - reusable parts of our design
-
 -------------------------------- */
 .timeline-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
@@ -9884,9 +9898,7 @@ Modules - reusable parts of our design
   z-index: 10;
 }
 /* --------------------------------
-
 Main components
-
 -------------------------------- */
 .timeline {
   position: relative;
@@ -13734,3 +13746,5 @@ Main components
     background-size: 114px 29px;
   }
 }
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help

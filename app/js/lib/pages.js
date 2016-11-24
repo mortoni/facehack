@@ -1238,7 +1238,6 @@
 
     Notification.prototype.show = function() {
 
-        // TODO: add fadeOut animation on show as option
         this.wrapper.prepend(this.notification);
 
         this.options.onShown();

@@ -8,6 +8,9 @@
       function current() {
         return user;
       }
+      function id() {
+        return user.uid;
+      }
       function logout() {
         user = {};
       }
@@ -15,7 +18,8 @@
       return {
         set      : set,
         current  : current,
-        logout   : logout
+        logout   : logout,
+        id       : id
       };
     });
 })();

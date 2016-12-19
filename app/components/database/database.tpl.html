@@ -1,15 +1,7 @@
-<div class="col-xs-12 -col-sm-12 col-md-8 contents">
+<div class="col-xs-12 -col-sm-12 col-md-12 contents">
     <md-toolbar class="content-table-header md-default bk-trans">
       <div class="md-toolbar-tools">
-        <span class="m-r-20">Contents Pool</span>
-        <button type="button"
-                class="btn btn-primary tip btn-xs"
-                data-toggle="tooltip"
-                data-original-title="Help?"
-                ui-jq="tooltip"
-                ng-click="vm.help()">
-          <i class="fa fa-question" aria-hidden="true"></i>
-        </button>
+        <span class="m-r-20">Database</span>
       </div>
     </md-toolbar>
 
@@ -18,13 +10,13 @@
         <thead md-head data-md-order="vm.query.order"
                md-on-reorder="vm.onReorder">
           <tr md-row>
-            <th md-column><span>Time</span></th>
             <th md-column><span>Page</span></th>
             <th md-column><span>Type</span></th>
             <th md-column><span>Likes</span></th>
             <th md-column><span>Shares</span></th>
             <th md-column><span>Comments</span></th>
-            <th md-column><span>Actions</span></th>
+            <th md-column><span>Data</span></th>
+            <th md-column><span>Action</span></th>
           </tr>
         </thead>
         <tbody md-body>

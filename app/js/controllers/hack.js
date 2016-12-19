@@ -29,7 +29,9 @@
 
       function resume(page) {
         page.isPaused = !page.isPaused;
-        notification.show('Page ' + page.name + ' ' + (page.isPaused ? 'Resumed!' : 'Paused'));
+        notification.show('Page ' + page.name + ' ' +
+          (page.isPaused ? 'Resumed!' : 'Paused')
+        );
       }
 
       function remove(page) {
@@ -40,7 +42,7 @@
       }
 
       function trustSrc() {
-        if(typeof vm.selected !== 'undefined')
+        if(!_.isUndefined(vm.selected))
           return $sce.trustAsResourceUrl(vm.selected.source);
       }
 
@@ -52,7 +54,8 @@
 
       function help_content() {
         $('#modalContentHelp').modal('show');
-        $('#modalContentHelp').children('.modal-dialog').removeClass('modal-lg');
+        $('#modalContentHelp')
+          .children('.modal-dialog').removeClass('modal-lg');
       }
 
       function help_pool() {

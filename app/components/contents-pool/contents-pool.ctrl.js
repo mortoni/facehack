@@ -32,7 +32,8 @@
       function see(content) {
         vm.selected = content;
         $('#modalContent').modal('show');
-        $('#modalContent').children('.modal-dialog').removeClass('modal-lg');
+        $('#modalContent').children('.modal-dialog')
+          .removeClass('modal-lg');
       }
 
       function graph(content) {
@@ -41,7 +42,7 @@
 
       function addDatabase(content) {
 
-        if(typeof content.isAdded == 'undefined')
+        if(!_.isUndefined(content.isAdded))
           content.isAdded = true;
         else
           return;
@@ -70,7 +71,7 @@
       }
 
       function trustSrc() {
-        if(typeof vm.selected !== 'undefined')
+        if(!_.isUndefined(vm.selected))
           return $sce.trustAsResourceUrl(vm.selected.source);
       }
 

@@ -20,7 +20,7 @@ gulp.task('default', function() {
  console.log( "----------------------------\n" );
 });
 
-gulp.task( 'browser-sync', [ 'lint-scss' ], () => {
+gulp.task( 'browser-sync', () => {
     browserSync.init( {
         server: {
             baseDir: dir.dev,
@@ -63,11 +63,11 @@ gulp.task( 'clean', ( done ) => {
     } );
 } );
 
-gulp.task('lint-scss', function() {
-  return gulp.src(dir.dev + '/styles/styles.scss')
-						 .pipe(sassLint())
-						 .pipe(sassLint.format())
-						 .pipe(sassLint.failOnError())
-  ;
-
-});
+// gulp.task('lint-scss', function() {
+//   return gulp.src(dir.dev + '/styles/styles.scss')
+// 						 .pipe(sassLint())
+// 						 .pipe(sassLint.format())
+// 						 .pipe(sassLint.failOnError())
+//   ;
+//
+// });

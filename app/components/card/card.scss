@@ -1,12 +1,14 @@
-.thumbnail-wrapper.d64 {
-    width: 64px;
-    height: 64px;
-}
+fck-cards{
+  .thumbnail-wrapper.d64 {
+      width: 64px;
+      height: 64px;
+  }
 
-.face-card-label {
-	width: 181px;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	font-size: 16px;
+  .face-card-label {
+  	width: 181px;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	font-size: 16px;
+  }
 }

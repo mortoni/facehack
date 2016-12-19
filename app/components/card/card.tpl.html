@@ -29,7 +29,9 @@
   </form>
 </div>
 
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="padding: 0;" ng-repeat="page in vm.target | orderBy: 'fan_count':true" ng-if="page.cover">
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="padding: 0;"
+     ng-repeat="page in vm.target | orderBy: 'fan_count':true"
+     ng-if="page.cover">
 
   <md-card md-theme-watch>
     <md-card-title>
@@ -41,7 +43,10 @@
       </md-card-title-text>
       <md-card-title-media>
         <div class="thumbnail-wrapper d64 circular">
-          <img width="40" height="40" ng-src="{{page.picture}}" alt="{{page.name}} Picture"/>
+          <img width="40"
+               height="40"
+               ng-src="{{page.picture}}"
+               alt="{{page.name}} Picture"/>
         </div>
       </md-card-title-media>
     </md-card-title>

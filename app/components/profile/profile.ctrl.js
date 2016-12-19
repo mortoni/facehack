@@ -14,7 +14,6 @@
       function logout() {
         firebase.auth().signOut()
         user.logout();
-        notification.show('First rule: You do not talk about Facehack, second rule: You do not talk about Facehack.');
         $state.go('core.login');
       }
 

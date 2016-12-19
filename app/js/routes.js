@@ -26,7 +26,7 @@
                     controllerAs: 'vm'
                 })
                 .state('app.content', {
-                    url: "/hack",
+                    url: "/database",
                     templateUrl: "views/app/content.html",
                     controller: 'ContentCtrl',
                     controllerAs: 'vm'

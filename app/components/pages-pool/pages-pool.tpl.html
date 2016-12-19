@@ -15,18 +15,23 @@
 
   <md-table-container>
     <table data-md-table md-progress="vm.promise">
-      <thead md-head data-md-order="vm.query.order" md-on-reorder="vm.onReorder">
+      <thead md-head data-md-order="vm.query.order"
+             md-on-reorder="vm.onReorder">
         <tr md-row>
           <th md-column><span>Pages</span></th>
           <th md-column><span>Actions</span></th>
         </tr>
       </thead>
       <tbody md-body>
-        <tr md-row data-ng-repeat="page in vm.pages" ng-class="{'face-row': page.isPaused}">
+        <tr md-row data-ng-repeat="page in vm.pages"
+                   ng-class="{'face-row': page.isPaused}">
           <td md-cell>
             <div>
               <div class="thumbnail-wrapper d32 circular">
-                <img width="40" height="40" ng-src="{{page.picture}}" alt="{{page.name}} Picture"/>
+                <img width="40"
+                     height="40"
+                     ng-src="{{page.picture}}"
+                     alt="{{page.name}} Picture"/>
               </div>
               <div class="col-xs-9">
                 <span class="title"><strong>{{page.name}}</strong></span><br>
@@ -41,8 +46,12 @@
             <button type="button"
                     class="btn btn-complete btn-xs"
                     ng-click="vm.resume(page)">
-              <i class="fa fa-play" aria-hidden="true" ng-hide="page.isPaused"></i>
-              <i class="fa fa-pause" aria-hidden="true" ng-hide="!page.isPaused"></i>
+              <i class="fa fa-play"
+                 aria-hidden="true"
+                 ng-hide="page.isPaused"></i>
+              <i class="fa fa-pause"
+                 aria-hidden="true"
+                 ng-hide="!page.isPaused"></i>
             </button>
             <button type="button"
                     class="btn btn-complete tip btn-xs"
@@ -60,18 +69,28 @@
   </md-table-container>
 </div>
 
-<div class="modal fade slide-up disable-scroll" id="modalPoolHelp" tabindex="-1" role="dialog" aria-hidden="false">
+<div class="modal fade slide-up disable-scroll"
+     id="modalPoolHelp"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="false">
     <div class="modal-dialog ">
         <div class="modal-content-wrapper">
             <div class="modal-content">
                 <div class="modal-header clearfix text-left">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                  <button type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-hidden="true">
+                      X
+                  </button>
                   <h5>Hack Pool Help</h5>
                   <span class="sub-title">How Hack Pool table work?</span>
                 </div>
                 <div class="modal-body">
-                  <p>Hack Pool, will have all those facebook pages which the user wants to listening for it contents
-                  The pages can be paused and resumed</p>
+                  <p>Hack Pool, will have all those facebook pages which the
+                     user wants to listening for it contents The pages can be
+                     paused and resumed</p>
                 </div>
             </div>
         </div>

@@ -16,7 +16,9 @@
 
       function resume(page) {
         page.isPaused = !page.isPaused;
-        notification.show('Page ' + page.name + ' ' + (page.isPaused ? 'Resumed!' : 'Paused'));
+        notification.show('Page ' + page.name + ' ' +
+          (page.isPaused ? 'Resumed!' : 'Paused')
+        );
       }
 
       function remove(page) {

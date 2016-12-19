@@ -16,8 +16,8 @@
     <link rel="icon" type="image/ico" href="facehack.ico"/>
 
     <!--build:css(.) css/vendor.min.css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/> <!-- aqui -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/> <!-- aqui -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css"/>
     <!-- endbuild -->
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
+<body>
     <div class="full-height" ui-view></div>
     <script src="https://connect.facebook.net/en_US/sdk.js"></script>
 
@@ -41,6 +42,7 @@
     <script src="bower_components/angular-material/angular-material.min.js"></script>
     <script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
     <!-- endbuild -->
     <!-- build:js js/script.min.js -->
     <script src="js/lib/ui.utils.min.js"></script>
@@ -85,6 +87,7 @@
     <script src="components/sidebar/sidebar.ctrl.js"></script>
     <script src="components/pages-pool/pages-pool.ctrl.js"></script>
     <script src="components/contents-pool/contents-pool.ctrl.js"></script>
+    <script src="components/database/database.ctrl.js"></script>
     <!-- endbuild -->
   </body>
 </html>

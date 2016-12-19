@@ -1,4 +1,6 @@
-<nav class="page-sidebar" data-pages="sidebar" pg-sidebar ng-controller="WidgetCtrl">
+<nav class="page-sidebar"
+     data-pages="sidebar"
+     pg-sidebar ng-controller="WidgetCtrl">
   <div class="sidebar-overlay-slide from-top" id="appMenu">
     <div class="row">
     </div>
@@ -29,21 +31,30 @@
         <a ui-sref="app.dashboard" class="detailed">
           <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail" ng-class="{'bg-complete': $state.current.name == 'app.dashboard'}"><i class="fa fa-tachometer" aria-hidden="true"></i></span>
+        <span class="icon-thumbnail"
+              ng-class="{'bg-complete': $state.current.name == 'app.dashboard'}">
+              <i class="fa fa-tachometer" aria-hidden="true"></i>
+        </span>
       </li>
 
       <li class="open" ui-sref-active="active">
         <a ui-sref="app.hack" class="detailed">
           <span class="title">Pool</span>
         </a>
-        <span class="icon-thumbnail" ng-class="{'bg-complete': $state.current.name == 'app.hack'}"><i class="fa fa-diamond" aria-hidden="true"></i></span>
+        <span class="icon-thumbnail"
+              ng-class="{'bg-complete': $state.current.name == 'app.hack'}">
+              <i class="fa fa-diamond" aria-hidden="true"></i>
+        </span>
       </li>
 
       <li class="open" ui-sref-active="active">
         <a ui-sref="app.content" class="detailed">
           <span class="title">Contents</span>
         </a>
-        <span class="icon-thumbnail" ng-class="{'bg-complete': $state.current.name == 'app.contents'}"><i class="fa fa-database" aria-hidden="true"></i></span>
+        <span class="icon-thumbnail"
+          ng-class="{'bg-complete': $state.current.name == 'app.content'}">
+          <i class="fa fa-database" aria-hidden="true"></i>
+        </span>
       </li>
     </ul>
     <div class="clearfix"></div>

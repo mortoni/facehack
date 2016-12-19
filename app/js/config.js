@@ -1,6 +1,7 @@
 (function(){
      'use strict';
-     angular.module('app').run(['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification',
+     angular.module('app').run(
+       ['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification',
      function($state, user, $rootScope, pool, facebook, notification) {
        // Initialize Firebase
        // Initialize Firebase
@@ -17,7 +18,7 @@
         $rootScope.$on('$stateChangeSuccess', function(event, toState) {
           var requireLogin = toState.data.requireLogin;
 
-          if (requireLogin && typeof user.current() === 'undefined') {
+          if (requireLogin && _.isUndefined(user.current())) {
             event.preventDefault();
             $state.go('core.login');
           }

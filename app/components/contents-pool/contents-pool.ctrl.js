@@ -42,12 +42,12 @@
 
       function addDatabase(content) {
 
-        if(!_.isUndefined(content.isAdded))
+        if(_.isUndefined(content.isAdded))
           content.isAdded = true;
         else
           return;
 
-        firebase.database().ref('contents/' + user.id()).push({
+        firebase.database().ref('contents/' + user.id() + '/database').push({
           comments    : content.comments,
           created_time: content.created_time,
           full_picture: content.full_picture,

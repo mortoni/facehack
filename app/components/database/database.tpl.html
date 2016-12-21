@@ -15,28 +15,18 @@
             <th md-column><span>Likes</span></th>
             <th md-column><span>Shares</span></th>
             <th md-column><span>Comments</span></th>
-            <th md-column><span>Data</span></th>
+            <th md-column><span>Date</span></th>
             <th md-column><span>Action</span></th>
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row data-ng-repeat="post in vm.posts" >
-            <td md-cell>{{post.created_time | date:"h:mma"}}</td>
-            <td md-cell>{{post.page.name}}</td>
-            <td md-cell>
-              <i class="fa fa-film"
-                 aria-hidden="true"
-                 ng-if="post.type === 'video'"></i>
-              <i class="fa fa-link"
-                 aria-hidden="true"
-                 ng-if="post.type === 'link'"></i>
-              <i class="fa fa-picture-o"
-                 aria-hidden="true"
-                 ng-if="post.type === 'photo'"></i>
-            </td>
-            <td md-cell>{{post.likes}}</td>
-            <td md-cell>{{post.shares}}</td>
-            <td md-cell>{{post.comments}}</td>
+          <tr md-row ng-repeat="post in vm.database" >
+            <td md-cell>{{post.data.page.name}}</td>
+            <td md-cell>{{post.data.type}}</td>
+            <td md-cell>{{post.data.likes}}</td>
+            <td md-cell>{{post.data.shares}}</td>
+            <td md-cell>{{post.data.comments}}</td>
+            <td md-cell>{{post.data.created_time | date : 'dd MMM yy'}}</td>
             <td md-cell>
               <button type="button"
                       class="btn btn-complete tip btn-xs"
@@ -46,14 +36,6 @@
                       ng-click="vm.see(post)">
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
-              <!-- <button type="button"
-                      class="btn btn-complete tip btn-xs"
-                      data-toggle="tooltip"
-                      data-original-title="Analytics"
-                      ui-jq="tooltip"
-                      ng-click="vm.graph(post)">
-                <i class="fa fa-line-chart" aria-hidden="true"></i>
-              </button> -->
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"

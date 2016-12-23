@@ -21,8 +21,22 @@
         </thead>
         <tbody md-body>
           <tr md-row ng-repeat="post in vm.database" >
-            <td md-cell>{{post.data.page.name}}</td>
-            <td md-cell>{{post.data.type}}</td>
+            <td md-cell>
+              <i class="fa fa-facebook-square" aria-hidden="true">
+                {{post.data.page.name}}
+              </i>
+            </td>
+            <td md-cell>
+              <i class="fa fa-film"
+                 aria-hidden="true"
+                 ng-if="post.data.type === 'video'"></i>
+              <i class="fa fa-link"
+                 aria-hidden="true"
+                 ng-if="post.data.type === 'link'"></i>
+              <i class="fa fa-picture-o"
+                 aria-hidden="true"
+                 ng-if="post.data.type === 'photo'"></i>
+            </td>
             <td md-cell>{{post.data.likes}}</td>
             <td md-cell>{{post.data.shares}}</td>
             <td md-cell>{{post.data.comments}}</td>
@@ -36,13 +50,23 @@
                       ng-click="vm.see(post)">
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
+
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
                       data-original-title="Add to database"
                       ui-jq="tooltip"
-                      ng-click="vm.addDatabase(post)">
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                      ng-click="vm.delete(post)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
+
+              <button type="button"
+                      class="btn btn-complete tip btn-xs"
+                      data-toggle="tooltip"
+                      data-original-title="Add to database"
+                      ui-jq="tooltip"
+                      ng-click="vm.refresh(post)">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
               </button>
             </td>
 

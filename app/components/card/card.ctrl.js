@@ -36,8 +36,21 @@
         }
       }
 
+      function spy(page) {
+        $('#modalInfo').modal('show');
+        // $('#modalInfo').children('.modal-dialog').addClass('modal-lg');
+        $('#modalInfo').on('show.bs.modal', function(e) {
+                $('body').addClass('fill-in-modal');
+            })
+
+        facebook.info(page).then(function(data) {
+          var test = data;
+        });
+      }
+
       vm.hack = hack;
       vm.search = search;
+      vm.spy = spy;
     }
   }
 

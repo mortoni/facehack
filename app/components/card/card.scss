@@ -11,4 +11,13 @@ fck-cards{
   	overflow: hidden;
   	font-size: 16px;
   }
+
+  .modal-full {
+    margin: 0;
+    width: 100%;
+  }
+
+  .modal.fade.fill-in .modal-content {
+    vertical-align: top;
+  }
 }

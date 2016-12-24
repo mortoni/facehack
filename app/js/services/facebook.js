@@ -33,8 +33,21 @@
         });
       }
 
+      function info(page) {
+        return new Promise(function(resolve, reject) {
+          FB.api(page.id + '/feed?fields=created_time,full_picture,shares,message'
+                         + ',source,type,likes.limit(0).summary(true)'
+                         + ',comments.limit(0).summary(true)'
+                         + '&limit=100&since=16-08-12',
+            function (response) {
+              resolve(response);
+            });
+        });
+
+      }
+
       function update(page) {
-        return new Promise(function(resolve, reject){
+        return new Promise(function(resolve, reject) {
           FB.api("/"+page.id+"/?fields=category,about,picture,cover,fan_count",
           function (response) {
             if (response && !response.error) {
@@ -134,7 +147,8 @@
         update      : update,
         get_limit   : get_limit,
         get_content : get_content,
-        updata_content : updata_content
+        updata_content : updata_content,
+        info        : info
       };
     }]);
 })();

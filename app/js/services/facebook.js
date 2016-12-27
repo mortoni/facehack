@@ -38,7 +38,7 @@
           FB.api(page.id + '/feed?fields=created_time,full_picture,shares,message'
                          + ',source,type,likes.limit(0).summary(true)'
                          + ',comments.limit(0).summary(true)'
-                         + '&limit=100&since=16-08-12',
+                         + '&limit=99&since=16-08-12',
             function (response) {
               resolve(response);
             });

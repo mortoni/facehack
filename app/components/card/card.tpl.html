@@ -53,7 +53,7 @@
     <md-card-actions layout="row" layout-align="end center">
       <md-button ng-click="vm.spy(page)">Spy</md-button>
       <md-button ng-click="vm.hack(page)">Hack</md-button>
-      <md-button>More</md-button>
+      <!-- <md-button>More</md-button> -->
     </md-card-actions>
   </md-card>
 
@@ -64,18 +64,65 @@
      tabindex="-1"
      role="dialog"
      aria-hidden="true">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-        <i class="pg-close"></i>
+    <button type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true">
+        X
     </button>
     <div class="modal-dialog modal-full">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="text-left p-b-5"><span class="semi-bold">News letter</span> signup</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <span class="text-left">teste</span>
-                </div>
+              <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="item in vm.info">
+                <md-card md-theme="default" md-theme-watch>
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-subhead">
+                        <i class="fa fa-comment-o col-xs-4" aria-hidden="true">
+                          {{item.comments.summary.total_count  | number}}
+                        </i>
+
+                        <i class="fa fa-heart-o col-xs-4 text-center" aria-hidden="true">
+                          {{item.likes.summary.total_count | number}}
+                        </i>
+                        <div class="col-xs-4">
+                          <i class="fa fa-share pull-right" aria-hidden="true">
+                            {{item.shares.count  | number}}
+                          </i>
+                        </div>
+
+
+                      </span>
+                    </md-card-title-text>
+                  </md-card-title>
+                  <md-card-content layout="row" layout-align="space-between">
+                    <div class="md-media-xl card-media center-block">
+                      <img class="img-responsive"
+                           ng-src="{{item.full_picture}}"
+                           alt="{{item.message}}"/>
+                    </div>
+
+                    <!-- <md-card-actions layout="column">
+                      <md-button class="md-icon-button" aria-label="Likes">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i><br>
+                        {{item.likes.summary.total_count | number}}
+                      </md-button>
+                      <md-button class="md-icon-button" aria-label="Comments">
+                        <i class="fa fa-comment-o" aria-hidden="true">
+                          {{item.comments.summary.total_count}}
+                        </i>
+                      </md-button>
+                      <md-button class="md-icon-button" aria-label="Shares">
+                        <i class="fa fa-share" aria-hidden="true">
+                          {{item.shares.count}}
+                        </i>
+                      </md-button>
+                    </md-card-actions> -->
+                  </md-card-content>
+                </md-card>
+              </div>
             </div>
             <div class="modal-footer">
             </div>

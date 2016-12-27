@@ -20,4 +20,16 @@ fck-cards{
   .modal.fade.fill-in .modal-content {
     vertical-align: top;
   }
+
+  md-card md-card-content .md-media-xl {
+    height: 300px;
+    width: 300px;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .img-responsive {
+     max-height: 300px;
+     max-width: 300px;
+  }
 }

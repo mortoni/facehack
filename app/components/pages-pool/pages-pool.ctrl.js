@@ -6,7 +6,7 @@
     restrict: 'E',
     bindings: {},
     templateUrl : 'components/pages-pool/pages-pool.tpl.html',
-    controller: function(pool, notification) {
+    controller: function(pool, notification, Logger) {
       var vm = this;
       vm.pages = pool.get();
 
@@ -15,7 +15,7 @@
       vm.remove = remove;
 
       function resume(page) {
-        page.isPaused = !page.isPaused;
+        page.isPaused = !page.isPaused;        
         notification.show('Page ' + page.name + ' ' +
           (page.isPaused ? 'Resumed!' : 'Paused')
         );

@@ -4,7 +4,6 @@
        ['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification',
      function($state, user, $rootScope, pool, facebook, notification) {
        // Initialize Firebase
-       // Initialize Firebase
         var config = {
           apiKey: "AIzaSyBSzvDKKvxUk-PSCCzl9MwZliSlL5Qxii8",
           authDomain: "facehack-19ecb.firebaseapp.com",
@@ -14,6 +13,11 @@
         };
 
         firebase.initializeApp(config);
+
+        window.onbeforeunload = function () {
+          firebase.auth().signOut()
+          user.logout();
+        };
 
         $rootScope.$on('$stateChangeSuccess', function(event, toState) {
           var requireLogin = toState.data.requireLogin;
@@ -31,6 +35,7 @@
             if(p.isPaused) {
               facebook.get_content(p).then(function(data){
                 if(data) {
+                  Logger.info('An object, but not via Logger.data, expanded: ', data, false, true);
                   if(pool.is_content(data)){
                     pool.add_content(data);
                     notification.show('Found a new Content');

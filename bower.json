@@ -12,6 +12,7 @@
     "jquery.scrollbar": "^0.2.11",
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "lodash": "^4.17.2"
+    "lodash": "^4.17.2",
+    "angular-logger-max": "^1.2.3"
   }
 }

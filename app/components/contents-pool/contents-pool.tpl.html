@@ -7,7 +7,8 @@
                 data-toggle="tooltip"
                 data-original-title="Help?"
                 ui-jq="tooltip"
-                ng-click="vm.help()">
+                ng-click="vm.help()"
+                aria-label="click for help">
           <i class="fa fa-question" aria-hidden="true"></i>
         </button>
       </div>
@@ -161,7 +162,7 @@
                          height="350" />
                     <a ng-href="{{vm.selected.link}}"
                        target="_blank"
-                       tabindex="1">Content</a>
+                       tabindex="0">Content</a>
                   </div>
 
                   <div ng-show="vm.selected.type === 'video'">

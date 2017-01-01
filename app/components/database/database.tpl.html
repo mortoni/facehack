@@ -54,16 +54,16 @@
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
-                      data-original-title="Add to database"
+                      data-original-title="Remove"
                       ui-jq="tooltip"
-                      ng-click="vm.delete(post)">
+                      ng-click="vm.remove(post)">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
 
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
-                      data-original-title="Add to database"
+                      data-original-title="Refresh"
                       ui-jq="tooltip"
                       ng-click="vm.refresh(post)">
                 <i class="fa fa-refresh" aria-hidden="true"></i>
@@ -159,7 +159,7 @@
                          height="350" />
                     <a ng-href="{{vm.selected.link}}"
                        target="_blank"
-                       tabindex="1">Content</a>
+                       tabindex="0">Content</a>
                   </div>
 
                   <div ng-show="vm.selected.type === 'video'">

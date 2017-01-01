@@ -11,6 +11,9 @@
       var vm = this;
       vm.database = [];
 
+      vm.see = see;
+      vm.remove = remove;
+
       var ref = firebase.database().ref('contents/' + user.id() + '/database');
       ref.on('value', function(snapshot) {
         db = snapshot.val();
@@ -25,8 +28,23 @@
         });
       });
 
+      function see(content) {
+        vm.selected = content.data;
+        $('#modalContent').modal('show');
+        $('#modalContent').children('.modal-dialog')
+          .removeClass('modal-lg');
+      }
 
-
+      function remove(content) {
+        var test = content;
+        firebase.database()
+          .ref('contents/' + user.id() + '/database/' + content.uid)
+          .remove().then(function() {
+            console.log("Remove succeeded.");
+          }).catch(function(error) {
+            console.log("Remove failed: " + error.message);
+          });
+      }
     }
   }
 

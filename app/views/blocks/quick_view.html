@@ -7,19 +7,22 @@
             <a href="#quickview-chat" data-toggle="tab" pg-tab>Configuration</a>
         </li>
     </ul>
-    <a class="btn-link quickview-toggle"
+    <button
+       class="btn-link quickview-toggle"
        data-toggle-element="#quickview"
-       data-toggle="quickview">
+       data-toggle="quickview"
+       aria-label="click here to close configuration">
       <i class="fa fa-times" aria-hidden="true"></i>
-    </a>
+    </button>
     <div class="tab-content">
 
         <div class="tab-pane fade in active no-padding" id="quickview-chat">
           <div class="view-port clearfix" >
             <div class="view bg-white p-t-10 p-b-10 p-r-20 p-l-20">
 
-              <span>Max number of result</span><br>
-              <span>to be returned: <strong>{{vm.limit}}</strong></span>
+              <label for="limit-slider">Max number of result<br>
+                to be returned: <strong>{{vm.limit}}</strong>
+              </label>
 
               <div layout>
                 <md-slider flex class="md-primary"
@@ -32,7 +35,12 @@
                            aria-valuemax="50"
                            aria-valuenow="{{vm.limit}}"
                            aria-label="Max number of result to be returned"
-                           tabindex="-1">
+                           aria-labelledby="limit-slider"
+                           aria-orientation="horizontal"
+                           aria-valuetext=""
+                           tabindex="-1"
+                           role="slider"
+                           id="limit-slider">
                 </md-slider>
               </div>
 

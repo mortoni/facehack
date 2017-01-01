@@ -32,4 +32,10 @@ fck-cards{
      max-height: 300px;
      max-width: 300px;
   }
+
+  .btn-default:focus, .btn-default:focus {
+    background-color: #f0f0f0;
+    border-color: #e6e6e6;
+    color: #2c2c2c;
+  }
 }

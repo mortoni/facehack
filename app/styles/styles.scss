@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+a {
+  color: #007db7;
+}
+
 #lamp {
   background: $bg-ebony-clay;
   height: 100vh;
@@ -179,6 +183,25 @@ span.footer-label {
 .contents .content-table-header {
   background-color: $bg-ebony;
   color: $bg-white-matte-87;
+}
+
+.alert-success {
+    background-color: #cff5f2;
+    color: #005951;
+    border-color: #0a7c71;
+}
+
+.page-sidebar {
+  a {
+    &:hover {
+      .title {
+          color: $bg-white
+      }
+    }
+  }
+  .title {
+      color: #9097a8;
+  }
 }
 
 @media only screen and (max-device-width: 480px) {

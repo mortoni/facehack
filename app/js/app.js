@@ -6,5 +6,6 @@ angular.module('app', [
     'ngMaterial',
     'md.data.table',
     'firebase',
-    'components'
+    'components',
+    'angular-logger-max'
 ]);

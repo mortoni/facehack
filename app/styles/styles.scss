@@ -212,4 +212,12 @@ span.footer-label {
   .btn-m-t	{
     margin-top: 34%;
 	}
+
+  .modal {
+    padding: 0px !important;
+
+    .modal-body {
+      padding: 0px !important;
+    }
+  }
 }

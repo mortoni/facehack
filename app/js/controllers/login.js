@@ -13,6 +13,20 @@
       vm.login_desktop = login_desktop;
       vm.login_mobile = login_mobile;
 
+      function activate() {
+        firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            var token = result.credential.accessToken;
+          }
+          user.set(result.user);
+          // window.fbAsyncInit();
+          notification.show('Yoo HACKER be welcome!');
+          // $state.go('app.dashboard');
+        }).catch(function(error) {
+          notification.show('GO AWAY! You are not a HACKER, or try again.');
+        });
+      }
+
       var provider = new firebase.auth.FacebookAuthProvider();
 
       function isLamp() {
@@ -26,34 +40,14 @@
           notification.show('Yoo HACKER be welcome!');
           $state.go('app.dashboard');
         }).catch(function(error) {
-          notification.show('GO AWAY! You are not a HACKER.' + error.message);
+          notification.show('GO AWAY! You are not a HACKER, or try again.');
         });
       }
 
       function login_mobile() {
         firebase.auth().signInWithRedirect(provider);
 
-        firebase.auth().getRedirectResult().then(function(result) {
-          if (result.credential) {
-            var token = result.credential.accessToken;
-          }
-          user.set(result.user);
-          $window.fbAsyncInit();
-          notification.show('Yoo HACKER be welcome!');
-          $state.go('app.dashboard');
-        }).catch(function(error) {
-          notification.show('GO AWAY! You are not a HACKER.' + error.message);
-        });
-
-
-        // firebase.auth().getRedirectResult().then(function(result) {
-        //   user.set(result.user);
-        //   $window.fbAsyncInit();
-        //   notification.show('Yoo HACKER be welcome!');
-        //   $state.go('app.dashboard');
-        // }).catch(function(error) {
-        //   notification.show('GO AWAY! You are not a HACKER.' + error.message);
-        // });
+        activate();
       }
 
       $window.fbAsyncInit = function() {

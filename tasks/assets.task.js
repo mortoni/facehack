@@ -18,6 +18,6 @@ gulp.task('images', function() {
 });
 
 gulp.task('fonts-awesome', function() {
-  gulp.src(['node_modules/font-awesome/fonts/**/*'])
+  gulp.src(['bower_components/font-awesome/fonts/**/*'])
       .pipe(gulp.dest('dist/app/fonts'));
 });

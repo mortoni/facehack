@@ -54,7 +54,7 @@ gulp.task('dist:serve', function() {
 });
 
 gulp.task( 'build', [ 'clean' ], () => {
-    gulp.start( 'html', 'assets' );
+    gulp.start( 'html', 'assets', 'fonts-awesome');
 } );
 
 gulp.task( 'clean', ( done ) => {

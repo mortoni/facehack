@@ -1,8 +1,8 @@
 (function(){
      'use strict';
      angular.module('app').run(
-       ['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification',
-     function($state, user, $rootScope, pool, facebook, notification) {
+       ['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification', 'Logger',
+     function($state, user, $rootScope, pool, facebook, notification, Logger) {
        // Initialize Firebase
         var config = {
           apiKey: "AIzaSyBSzvDKKvxUk-PSCCzl9MwZliSlL5Qxii8",
@@ -35,7 +35,7 @@
             if(p.isPaused) {
               facebook.get_content(p).then(function(data){
                 if(data) {
-                  Logger.info('An object, but not via Logger.data, expanded: ', data, false, true);
+                  Logger.info('A post found, expanded: ', data, false, true);
                   if(pool.is_content(data)){
                     pool.add_content(data);
                     notification.show('Found a new Content');

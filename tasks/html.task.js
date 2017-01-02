@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 
-gulp.task('html', ['htmlmin', 'index']);
+gulp.task('html', ['htmlmin', 'index', 'html-component']);
 
 gulp.task('htmlmin', function() {
   return gulp.src( 'app/views/**/*.html' )
@@ -17,6 +17,18 @@ gulp.task('htmlmin', function() {
       removeOptionalTags: true
     }))
     .pipe(gulp.dest( 'dist/app/views' ));
+});
+
+gulp.task('html-component', function() {
+  return gulp.src( 'app/components/**/*.html' )
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      conservativeCollapse: true,
+      collapseBooleanAttributes: true,
+      removeCommentsFromCDATA: true,
+      removeOptionalTags: true
+    }))
+    .pipe(gulp.dest( 'dist/app/components' ));
 });
 
 gulp.task('index', function(){

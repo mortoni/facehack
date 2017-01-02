@@ -18,9 +18,17 @@
     <link rel="stylesheet" href="css/vendor.min.css">
     <link rel="stylesheet" href="css/main.min.css">
 </head>
+<body>
     <div class="full-height" ui-view></div>
-    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
-
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+      FB.init({
+        appId      : '1604104083228708',
+        status     : true,
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+    </script>
     <script src="js/bundle.min.js"></script>
     <script src="js/script.min.js"></script>
   </body>

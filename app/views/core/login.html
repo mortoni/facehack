@@ -25,13 +25,15 @@
     </div>
   </div>
 
+
   <div class="text-center visible-sm visible-xs">
     <div class="btn-group btn-m-t" role="group">
       <button class="btn btn-primary btn-facehack"
-              tabindex="0" ng-click="vm.login_mobile()">
+              tabindex="0" ng-click="vm.login_desktop()">
         <span ng-show="vm.lamp">Facehack</span>
         <span ng-show="!vm.lamp">185.60.216.35</span>
       </button>
+
       <button class="btn btn-primary"
               ng-click="vm.lamp = !vm.lamp"
               tabindex="-1"

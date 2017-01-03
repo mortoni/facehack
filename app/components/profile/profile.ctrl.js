@@ -12,7 +12,7 @@
       vm.logout = logout;
 
       function logout() {
-        firebase.auth().signOut()
+        firebase.auth().signOut();
         user.logout();
         $state.go('core.login');
       }

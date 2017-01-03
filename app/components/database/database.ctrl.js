@@ -41,6 +41,8 @@
           .ref('contents/' + user.id() + '/database/' + content.uid)
           .remove().then(function() {
             console.log("Remove succeeded.");
+            //TODO here
+            //notification.show('Content added to your database');
           }).catch(function(error) {
             console.log("Remove failed: " + error.message);
           });

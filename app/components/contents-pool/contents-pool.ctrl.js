@@ -6,7 +6,7 @@
     restrict: 'E',
     bindings: {},
     templateUrl : 'components/contents-pool/contents-pool.tpl.html',
-    controller: function(pool, $scope, $sce, user) {
+    controller: function(pool, $scope, $sce, user, notification) {
       var vm = this;
 
       vm.posts = pool.get_content();
@@ -68,7 +68,11 @@
           source      : content.source,
           type        : content.type
         });
+
+        notification.show('Content added to your database');
       }
+
+
 
       function trustSrc() {
         if(!_.isUndefined(vm.selected))

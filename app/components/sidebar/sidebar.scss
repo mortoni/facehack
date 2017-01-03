@@ -1,7 +1,15 @@
-.page-sidebar {
-  .sidebar-menu {
-    .menu-items {
-      overflow: hidden;
+.menu-items {
+  overflow: hidden;
+
+  li {
+    &:focus {
+      outline: none;
     }
   }
+
+}
+
+.menu-bottom {
+  position: absolute !important;
+  bottom: 0;
 }

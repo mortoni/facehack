@@ -1,6 +1,7 @@
 <nav class="page-sidebar"
      data-pages="sidebar"
-     pg-sidebar ng-controller="WidgetCtrl">
+     pg-sidebar
+     ng-controller="WidgetCtrl">
   <div class="sidebar-overlay-slide from-top" id="appMenu">
     <div class="row">
     </div>
@@ -21,8 +22,8 @@
 
   <div class="sidebar-menu">
     <ul class="menu-items">
-      <li class="m-t-30 open" ui-sref-active="active">
-        <a ui-sref="app.dashboard" class="detailed">
+      <li class="m-t-30 open" ui-sref-active="active" ng-click="go('app.dashboard')">
+        <a class="detailed">
           <span class="title">Dashboard</span>
         </a>
         <span class="icon-thumbnail"
@@ -31,8 +32,8 @@
         </span>
       </li>
 
-      <li class="open" ui-sref-active="active">
-        <a ui-sref="app.hack" class="detailed">
+      <li class="open" ui-sref-active="active" ng-click="go('app.hack')">
+        <a class="detailed">
           <span class="title">Pool</span>
         </a>
         <span class="icon-thumbnail"
@@ -41,13 +42,24 @@
         </span>
       </li>
 
-      <li class="open" ui-sref-active="active">
-        <a ui-sref="app.content" class="detailed">
-          <span class="title">Contents</span>
+      <li class="open" ui-sref-active="active" ng-click="go('app.content')">
+        <a class="detailed">
+          <span class="title">Database</span>
         </a>
         <span class="icon-thumbnail"
           ng-class="{'bg-complete': $state.current.name == 'app.content'}">
           <i class="fa fa-database" aria-hidden="true"></i>
+        </span>
+      </li>
+    </ul>
+
+    <ul class="menu-items menu-bottom visible-sm visible-xs">
+      <li class="open" ui-sref-active="active" ng-click="logout()">
+        <a href="javascript:;" class="detailed">
+          <span class="title">Logout</span>
+        </a>
+        <span class="icon-thumbnail">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
         </span>
       </li>
     </ul>

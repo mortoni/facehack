@@ -22,9 +22,7 @@
         <tbody md-body>
           <tr md-row ng-repeat="post in vm.database" >
             <td md-cell>
-              <i class="fa fa-facebook-square" aria-hidden="true">
-                {{post.data.page.name}}
-              </i>
+              {{post.data.page.name}}
             </td>
             <td md-cell>
               <i class="fa fa-film"
@@ -111,7 +109,7 @@
     </div>
 </div>
 
-<div class="modal fade slide-up disable-scroll"
+<div class="modal fade slide-up disable-scroll col-xs-12 col-sm-8 col-md-6"
      id="modalContent"
      tabindex="-1"
      role="dialog"

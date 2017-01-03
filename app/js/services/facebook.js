@@ -136,6 +136,25 @@
         });
       }
 
+      function refresh(content) {
+        return new Promise(function(resolve, reject) {
+        FB.api(
+          "/" + content.id + "?fields=full_picture,comments.limit(0).summary(true),likes.limit(0).summary(true),shares.limit(0).summary(true),source",
+          function (response) {
+              if (response && !response.error) {
+                content.full_picture  = response.full_picture || content.full_picture;
+                content.likes         = response.likes.summary.total_count || content.likes;
+                content.comments      = response.comments.summary.total_count || content.comments;
+                content.shares        = response.shares ? response.shares.count : content.shares;
+                content.source        = response.source ? response.source : content.source;
+                resolve(content);
+              } else {
+                notification.show(''+response.error)
+              }
+          });
+        });
+      }
+
       return {
         set_target  : set_target,
         get_target  : get_target,
@@ -147,6 +166,7 @@
         update      : update,
         get_limit   : get_limit,
         get_content : get_content,
+        refresh     : refresh,
         updata_content : updata_content,
         info        : info
       };

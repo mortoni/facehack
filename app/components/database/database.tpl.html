@@ -51,16 +51,6 @@
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
             </td>
-            <!-- <td md-cell class="td-p-r-0">
-              <button type="button"
-                      class="btn btn-complete tip btn-xs"
-                      data-toggle="tooltip"
-                      data-original-title="Remove"
-                      ui-jq="tooltip"
-                      ng-click="vm.remove(post)">
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              </button>
-            </td> -->
             <td md-cell class="td-p-r-0">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
@@ -76,41 +66,6 @@
         </tbody>
       </table>
     </md-table-container>
-</div>
-
-<div class="modal fade slide-up disable-scroll"
-     id="modalContentHelp"
-     tabindex="-1"
-     role="dialog"
-     aria-hidden="false">
-    <div class="modal-dialog ">
-        <div class="modal-content-wrapper">
-            <div class="modal-content">
-                <div class="modal-header clearfix text-left">
-                  <button type="button"
-                          class="close"
-                          data-dismiss="modal"
-                          aria-hidden="true">
-                    X
-                  </button>
-                  <h5>Content Help</h5>
-                  <span class="sub-title">How Content table work?</span>
-                </div>
-                <div class="modal-body">
-                  <p>Content table, will get contents from pages that are in the
-                     hack pool on listening mode. However, It's a near real time
-                      application getting only those content within an hour ago,
-                      once it find a content, every 5 seconds update all
-                     contents and look for more. Will be update numbers of likes
-                     , shares and comments.</p>
-
-                  <img src="../images/steps-steps.png"
-                       alt="Steps of how Contents table work"
-                       class="hidden-xs hidden-sm"/>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="modal fade slide-up disable-scroll"
@@ -151,9 +106,6 @@
                     <img ng-src="{{vm.selected.full_picture}}"
                          alt="Image of content"
                          class="img-responsive" />
-                    <!-- <a ng-href="{{vm.selected.link}}"
-                       target="_blank"
-                       tabindex="0">Content</a> -->
                   </div>
                 </div>
             </div>

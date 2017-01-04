@@ -23,5 +23,4 @@
   angular
     .module('component.profile', [])
     .component('fckProfile', fckProfile);
-
 })();

@@ -17,5 +17,4 @@
   angular
     .module('component.sidebar', [])
     .component('fckSidebar', fckSidebar);
-
 })();

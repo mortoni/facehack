@@ -101,5 +101,4 @@
   angular
     .module('component.contents-pool', [])
     .component('fckContentsPool', fckContentsPool);
-
 })();

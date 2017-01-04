@@ -2,7 +2,7 @@
     <md-toolbar class="content-table-header md-default bk-trans">
       <div class="md-toolbar-tools">
         <span class="m-r-20">Contents Pool</span>
-        <button type="button"
+        <!-- <button type="button"
                 class="btn btn-primary tip btn-xs"
                 data-toggle="tooltip"
                 data-original-title="Help?"
@@ -10,7 +10,7 @@
                 ng-click="vm.help()"
                 aria-label="click for help">
           <i class="fa fa-question" aria-hidden="true"></i>
-        </button>
+        </button> -->
       </div>
     </md-toolbar>
 
@@ -25,7 +25,7 @@
             <th md-column><span>Likes</span></th>
             <th md-column><span>Shares</span></th>
             <th md-column><span>Comments</span></th>
-            <th md-column><span>Actions</span></th>
+            <th md-column colspan="2"><span>Actions</span></th>
           </tr>
         </thead>
         <tbody md-body>
@@ -46,7 +46,7 @@
             <td md-cell>{{post.likes}}</td>
             <td md-cell>{{post.shares}}</td>
             <td md-cell>{{post.comments}}</td>
-            <td md-cell>
+            <td md-cell class="td-p-r-0">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
@@ -63,6 +63,8 @@
                       ng-click="vm.graph(post)">
                 <i class="fa fa-line-chart" aria-hidden="true"></i>
               </button> -->
+            </td>
+            <td md-cell class="td-p-r-0">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"

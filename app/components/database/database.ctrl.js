@@ -14,24 +14,34 @@
       vm.remove = remove;
       vm.refresh = refresh;
 
-      var ref = firebase.database().ref('contents/' + user.id() + '/database');
+      if(user.id())
+        var ref = firebase.database().ref('contents/' + user.id() + '/database');
 
-      ref.on('value', function(snapshot) {
-        db = snapshot.val();
-        vm.database = [];
+      var promise = new Promise(function(resolve, reject) {
+        ref.on('value', function(snapshot) {
+          db = snapshot.val();
+          vm.database = [];
 
-        _(db).each(function(elem, key){
-          vm.database.push({
-            uid: key,
-            data: elem
+          _(db).each(function(elem, key){
+            vm.database.push({
+              uid: key,
+              data: elem
+            });
+            db[key] = _(elem).values();
           });
-          db[key] = _(elem).values();
+          resolve('yeah');
         });
       });
+
+      promise.then(function(data) {
+        $scope.$apply();
+      });
+
 
       function refresh(content) {
         facebook.refresh(content.data).then(function(data) {
           notification.show('Content updated(table only) succeeded.');
+          $scope.$apply();
         })
       }
 
@@ -47,10 +57,9 @@
         firebase.database()
           .ref('contents/' + user.id() + '/database/' + content.uid)
           .remove().then(function() {
-            //TODO here
             notification.show('Content removed succeeded.');
           }).catch(function(error) {
-            console.log("Remove failed: " + error.message);
+            notification.show('Remove failed.');
           });
       }
     }

@@ -16,7 +16,7 @@
             <th md-column><span>Shares</span></th>
             <th md-column><span>Comments</span></th>
             <th md-column><span>Date</span></th>
-            <th md-column><span>Action</span></th>
+            <th md-column colspan="3"><span>Action</span></th>
           </tr>
         </thead>
         <tbody md-body>
@@ -38,8 +38,10 @@
             <td md-cell>{{post.data.likes}}</td>
             <td md-cell>{{post.data.shares}}</td>
             <td md-cell>{{post.data.comments}}</td>
-            <td md-cell>{{post.data.created_time | date : 'dd MMM yy'}}</td>
-            <td md-cell>
+            <td md-cell class="td-p-r-0">
+              <span>{{post.data.created_time | date : 'dd MMM yy'}}</span>
+            </td>
+            <td md-cell class="td-p-r-0">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
@@ -48,7 +50,8 @@
                       ng-click="vm.see(post)">
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
-
+            </td>
+            <!-- <td md-cell class="td-p-r-0">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
@@ -57,7 +60,8 @@
                       ng-click="vm.remove(post)">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
-
+            </td> -->
+            <td md-cell class="td-p-r-0">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
@@ -109,7 +113,7 @@
     </div>
 </div>
 
-<div class="modal fade slide-up disable-scroll col-xs-12 col-sm-8 col-md-6"
+<div class="modal fade slide-up disable-scroll"
      id="modalContent"
      tabindex="-1"
      role="dialog"
@@ -142,36 +146,15 @@
                     </div>
                 </div>
                 <div class="modal-body content-body">
-                  <div ng-show="vm.selected.type ==  'photo'">
-                    <img ng-src="{{vm.selected.full_picture}}"
-                         width="548"
-                         height="350"
-                         alt="Image of content" />
-                  </div>
-
-                  <div ng-show="vm.selected.type === 'link'">
+                  <div>
                     <p>{{vm.selected.message}}</p>
                     <img ng-src="{{vm.selected.full_picture}}"
                          alt="Image of content"
-                         width="548"
-                         height="350" />
-                    <a ng-href="{{vm.selected.link}}"
+                         class="img-responsive" />
+                    <!-- <a ng-href="{{vm.selected.link}}"
                        target="_blank"
-                       tabindex="0">Content</a>
+                       tabindex="0">Content</a> -->
                   </div>
-
-                  <div ng-show="vm.selected.type === 'video'">
-                    <iframe  target="_top"
-                             class="youtube-player"
-                             type="text/html"
-                             width="548"
-                             height="350"
-                             ng-src="{{vm.trustSrc()}}"
-                             allowfullscreen
-                             frameborder="0">
-                    </iframe>
-                  </div>
-
                 </div>
             </div>
         </div>

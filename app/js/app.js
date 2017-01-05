@@ -7,5 +7,6 @@ angular.module('app', [
     'md.data.table',
     'firebase',
     'components',
-    'angular-logger-max'
+    'angular-logger-max',
+    'ngAria'
 ]);

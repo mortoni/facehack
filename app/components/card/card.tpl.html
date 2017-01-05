@@ -19,6 +19,7 @@
                   data-toggle="quickview"
                   data-toggle-element="#quickview"
                   tabindex="0"
+                  ng-click="vm.setIndexes()"
                   aria-label="Click here to open configurations">
                   <i class="fa fa-cog" aria-hidden="true"></i>
           </button>
@@ -52,7 +53,10 @@
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
       <md-button ng-click="vm.spy(page)">Spy</md-button>
-      <md-button ng-click="vm.hack(page)">Hack</md-button>
+      <md-button ng-click="vm.hack(page)"
+        tabindex="0"
+        aria-label="Hack"
+        aria-label="{{'Hack' + page.name}}">Hack</md-button>
       <!-- <md-button>More</md-button> -->
     </md-card-actions>
   </md-card>

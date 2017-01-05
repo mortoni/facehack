@@ -6,8 +6,9 @@
     restrict: 'E',
     bindings: {},
     templateUrl : 'components/card/card.tpl.html',
-    controller: function(pool, notification, facebook, $scope) {
+    controller: function(pool, notification, facebook, $scope, $document, $rootScope) {
       var vm = this;
+      $rootScope.quickview_index = false;
 
       function hack(page) {
         if(pool.add(page))
@@ -49,9 +50,25 @@
         });
       }
 
+      function setIndexes() {
+        $rootScope.quickview_index = true;
+
+        var index = $rootScope.quickview_index ? 0 : -1;
+
+        var limit_slider = $document[0].getElementById('limit-slider');
+        limit_slider.setAttribute("tabindex", index);
+
+        var quickview_close = $document[0].getElementById('quickview-close');
+        quickview_close.setAttribute("tabindex", index);
+
+        var quickview_automactly = $document[0].getElementById('quickview-automactly');
+        quickview_automactly.setAttribute("tabindex", index);
+      }
+
       vm.hack = hack;
       vm.search = search;
       vm.spy = spy;
+      vm.setIndexes = setIndexes;
     }
   }
 

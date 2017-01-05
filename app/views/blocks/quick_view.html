@@ -4,20 +4,26 @@
      ng-controller="DashboardCtrl as vm">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a href="#quickview-chat" data-toggle="tab" pg-tab>Configuration</a>
+            <a href="#quickview-chat"
+            data-toggle="tab"
+            pg-tab
+            tabindex="-1">Configuration</a>
         </li>
     </ul>
     <button
        class="btn-link quickview-toggle"
        data-toggle-element="#quickview"
        data-toggle="quickview"
-       aria-label="click here to close configuration">
+       ng-click="setIndexes()"
+       aria-label="click here to close configuration"
+       id="quickview-close"
+       tabindex="-1">
       <i class="fa fa-times" aria-hidden="true"></i>
     </button>
     <div class="tab-content">
 
         <div class="tab-pane fade in active no-padding" id="quickview-chat">
-          <div class="view-port clearfix" >
+          <div class="view-port clearfix">
             <div class="view bg-white p-t-10 p-b-10 p-r-20 p-l-20">
 
               <label for="limit-slider">Max number of result<br>
@@ -49,7 +55,9 @@
               <md-checkbox ng-model="vm.automactly"
                            ng-change="vm.auto()"
                            aria-label="Once You sele a Page Would you like to listen it Automactly"
-                           class="md-primary">
+                           class="md-primary"
+                           id="quickview-automactly"
+                           tabindex="-1">
               </md-checkbox>
             </div>
           </div>

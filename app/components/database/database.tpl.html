@@ -20,11 +20,17 @@
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row ng-repeat="post in vm.database" >
-            <td md-cell>
+          <tr md-row ng-repeat="post in vm.database"
+              tabindex="0"
+              aria-label="content">
+            <td md-cell
+                tabindex="0"
+                aria-label="{{post.data.page.name}}">
               {{post.data.page.name}}
             </td>
-            <td md-cell>
+            <td md-cell
+                tabindex="0"
+                aria-label="type {{post.data.type}}">
               <i class="fa fa-film"
                  aria-hidden="true"
                  ng-if="post.data.type === 'video'"></i>
@@ -35,10 +41,24 @@
                  aria-hidden="true"
                  ng-if="post.data.type === 'photo'"></i>
             </td>
-            <td md-cell>{{post.data.likes}}</td>
-            <td md-cell>{{post.data.shares}}</td>
-            <td md-cell>{{post.data.comments}}</td>
-            <td md-cell class="td-p-r-0">
+            <td md-cell
+                tabindex="0"
+                aria-label="{{post.data.likes}} likes">
+                {{post.data.likes}}
+            </td>
+            <td md-cell
+                tabindex="0"
+                aria-label="{{post.data.shares}} shares">
+                {{post.data.shares}}
+            </td>
+            <td md-cell
+                tabindex="0"
+                aria-label="{{post.data.comments}} comments">
+                {{post.data.comments}}
+            </td>
+            <td md-cell class="td-p-r-0"
+                tabindex="0"
+                aria-label="created in {{post.data.created_time | date : 'dd MMM yy'}}">
               <span>{{post.data.created_time | date : 'dd MMM yy'}}</span>
             </td>
             <td md-cell class="td-p-r-0">
@@ -47,7 +67,9 @@
                       data-toggle="tooltip"
                       data-original-title="See content"
                       ui-jq="tooltip"
-                      ng-click="vm.see(post)">
+                      ng-click="vm.see(post)"
+                      tabindex="0"
+                      aria-label="see content">
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
             </td>
@@ -57,7 +79,9 @@
                       data-toggle="tooltip"
                       data-original-title="Refresh"
                       ui-jq="tooltip"
-                      ng-click="vm.refresh(post)">
+                      ng-click="vm.refresh(post)"
+                      tabindex="0"
+                      aria-label="refresh">
                 <i class="fa fa-refresh" aria-hidden="true"></i>
               </button>
             </td>
@@ -87,6 +111,7 @@
                       <div class="thumbnail-wrapper d64 circular">
                         <img width="40"
                              height="40"
+                             tabindex="-1"
                              ng-src="{{vm.selected.page.picture}}"
                              alt="{{page.name}} Picture"/>
                       </div>
@@ -105,7 +130,9 @@
                     <p>{{vm.selected.message}}</p>
                     <img ng-src="{{vm.selected.full_picture}}"
                          alt="Image of content"
-                         class="img-responsive" />
+                         class="img-responsive"
+                         tabindex="0"
+                         aria-label="{{vm.selected.full_picture}}"/>
                   </div>
                 </div>
             </div>

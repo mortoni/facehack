@@ -20,7 +20,9 @@
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row data-ng-repeat="post in vm.posts" >
+          <tr md-row data-ng-repeat="post in vm.posts"
+              tabindex="0"
+              aria-label="content">
             <td md-cell>{{post.created_time | date:"h:mma"}}</td>
             <td md-cell>{{post.page.name}}</td>
             <td md-cell>
@@ -43,6 +45,8 @@
                       data-toggle="tooltip"
                       data-original-title="See content"
                       ui-jq="tooltip"
+                      tabindex="0"
+                      aria-label="see content"
                       ng-click="vm.see(post)">
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
@@ -53,6 +57,8 @@
                       data-toggle="tooltip"
                       data-original-title="Add to database"
                       ui-jq="tooltip"
+                      tabindex="0"
+                      aria-label="add to database"
                       ng-click="vm.addDatabase(post)">
                 <i class="fa fa-plus" aria-hidden="true"></i>
               </button>
@@ -84,7 +90,9 @@
                         <img width="40"
                              height="40"
                              ng-src="{{vm.selected.page.picture}}"
-                             alt="{{page.name}} Picture"/>
+                             alt="{{page.name}} Picture"
+                             tabindex="0"
+                             aria-label="content"/>
                       </div>
                       <div class="col-xs-8">
                         <h5>{{vm.selected.page.name}}</h5>

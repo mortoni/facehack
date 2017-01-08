@@ -16,7 +16,10 @@
       </thead>
       <tbody md-body>
         <tr md-row data-ng-repeat="page in vm.pages"
-                   ng-class="{'face-row': page.isPaused}">
+                   ng-class="{'face-row': page.isPaused}"
+                   md-autofocus
+                   tabindex="0"
+                   aria-label="Page {{page.name}}">
           <td md-cell>
             <div>
               <div class="thumbnail-wrapper d32 circular">
@@ -37,7 +40,9 @@
           <td md-cell>
             <button type="button"
                     class="btn btn-complete btn-xs"
-                    ng-click="vm.resume(page)">
+                    ng-click="vm.resume(page)"
+                    tabindex="0"
+                    aria-label="{{vm.state}}">
               <i class="fa fa-play"
                  aria-hidden="true"
                  ng-hide="page.isPaused"></i>
@@ -50,6 +55,8 @@
                     data-toggle="tooltip"
                     data-original-title="Delete"
                     ui-jq="tooltip"
+                    tabindex="0"
+                    aria-label="delete page"
                     ng-click="vm.remove(page)"
                     ng-hide="page.isPaused">
               <i class="fa fa-trash-o" aria-hidden="true"></i>

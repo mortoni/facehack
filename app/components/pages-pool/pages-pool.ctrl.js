@@ -16,6 +16,8 @@
 
       function resume(page) {
         page.isPaused = !page.isPaused;
+        vm.state = page.isPaused ? 'pause' : 'resume';
+
         notification.show('Page ' + page.name + ' ' +
           (page.isPaused ? 'Resumed!' : 'Paused')
         );

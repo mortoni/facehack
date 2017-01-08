@@ -52,12 +52,12 @@
       </md-card-title-media>
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
-      <md-button ng-click="vm.spy(page)">Spy</md-button>
+      <md-button ng-click="vm.spy(page)"
+        tabindex="0"
+        aria-label="{{'Spy' + page.name}}">Spy</md-button>
       <md-button ng-click="vm.hack(page)"
         tabindex="0"
-        aria-label="Hack"
         aria-label="{{'Hack' + page.name}}">Hack</md-button>
-      <!-- <md-button>More</md-button> -->
     </md-card-actions>
   </md-card>
 
@@ -79,20 +79,31 @@
             <div class="modal-header">
             </div>
             <div class="modal-body">
-              <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="item in vm.info">
-                <md-card md-theme="default" md-theme-watch>
+              <div class="col-xs-12 col-sm-6 col-md-4"
+                   ng-repeat="item in vm.info"
+                   tabindex="0">
+                <md-card md-theme="default" md-autofocus md-theme-watch>
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-subhead">
-                        <i class="fa fa-comment-o col-xs-4" aria-hidden="true">
+                        <i class="fa fa-comment-o col-xs-4"
+                           aria-hidden="true"
+                           tabindex="0"
+                           aria-label="{{item.comments.summary.total_count}} Comments ">
                           {{item.comments.summary.total_count  | number}}
                         </i>
 
-                        <i class="fa fa-heart-o col-xs-4 text-center" aria-hidden="true">
+                        <i class="fa fa-heart-o col-xs-4 text-center"
+                           aria-hidden="true"
+                           tabindex="0"
+                           aria-label="{{item.likes.summary.total_count}} Likes">
                           {{item.likes.summary.total_count | number}}
                         </i>
                         <div class="col-xs-4">
-                          <i class="fa fa-share pull-right" aria-hidden="true">
+                          <i class="fa fa-share pull-right"
+                             aria-hidden="true"
+                             tabindex="0"
+                             aria-label="{{item.shares.count}} Shares">
                             {{item.shares.count  | number}}
                           </i>
                         </div>
@@ -103,7 +114,9 @@
                     <div class="md-media-xl card-media center-block">
                       <img class="img-responsive"
                            ng-src="{{item.full_picture}}"
-                           alt="{{item.message}}"/>
+                           alt="{{item.message}}"
+                           tabindex="0"
+                           aria-label="{{item.message}}"/>
                     </div>
                   </md-card-content>
                 </md-card>

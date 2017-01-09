@@ -5,6 +5,8 @@ var dir = requireDir( './tasks' );
 var del = require( 'del' );
 var sassLint = require('gulp-sass-lint');
 var eslint = require('gulp-eslint');
+var path = require('path');
+var swPrecache = require('sw-precache');
 
 var dir = {
 	dev  : 'app',
@@ -33,7 +35,7 @@ gulp.task( 'browser-sync', () => {
     } );
 } );
 
-gulp.task( 'serve', [ 'browser-sync' ], () => {
+gulp.task( 'serve', [ 'browser-sync', 'generate-service-worker' ], () => {
     gulp.watch( './app/**/*.scss', [ 'styles' ] ).on( 'change', browserSync.reload );
 
     gulp.watch( [
@@ -63,11 +65,10 @@ gulp.task( 'clean', ( done ) => {
     } );
 } );
 
-// gulp.task('lint-scss', function() {
-//   return gulp.src(dir.dev + '/styles/styles.scss')
-// 						 .pipe(sassLint())
-// 						 .pipe(sassLint.format())
-// 						 .pipe(sassLint.failOnError())
-//   ;
-//
-// });
+gulp.task('generate-service-worker', function(callback) {
+
+  swPrecache.write(`${dir.dev}/service-worker.js`, {
+    staticFileGlobs: [dir.dev + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: dir.dev
+  }, callback);
+});

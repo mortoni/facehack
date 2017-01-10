@@ -41,7 +41,7 @@
           automactly: vm.automactly
         };
 
-        firebase.database().ref('contents/' + user.id()).set({config})
+        firebase.database().ref('contents/' + user.id()).update({config})
           .then(function() {
             notification.show('Configurations saved!');
           });

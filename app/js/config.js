@@ -21,6 +21,7 @@
             notification.show('You are connected with Internet');
           } else {
             user.setConnected(false);
+            $rootScope.connected = false;
             notification.show('You are NOT connected with Internet');
           }
         });

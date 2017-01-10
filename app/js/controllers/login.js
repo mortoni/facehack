@@ -21,6 +21,7 @@
       function login_desktop() {
         firebase.auth().signInWithPopup(provider).then(function(result) {
           user.set(result.user);
+          user.createDatabase();
           $window.fbAsyncInit();
           notification.show('Yoo HACKER be welcome!');
           $state.go('app.dashboard');

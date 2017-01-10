@@ -6,7 +6,6 @@
 
       // var expression;
       var target;
-      var limit = 15;
       var pages;
 
       function set_exp(e) {expression = e;}
@@ -20,7 +19,7 @@
 
       function search(expression) {
         return new Promise(function(resolve, reject) {
-          FB.api("/search?q=" + expression + "&type=page&limit=" + limit,
+          FB.api("/search?q=" + expression + "&type=page&limit=" + config.get_range() || 15,
           function (response) {
             if (response && !response.error) {
                 pages = response.data;

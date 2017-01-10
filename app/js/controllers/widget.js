@@ -8,6 +8,8 @@
     function WidgetCtrl($scope, $state, user, $rootScope){
       $scope.$state = $state;
       $scope.flag = false;
+      // $scope.isConnected = user.getConnected();
+      $scope.isConnected= true;
 
       $scope.logout = function() {
         firebase.auth().signOut();

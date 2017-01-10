@@ -14,6 +14,17 @@
 
         firebase.initializeApp(config);
 
+        var connectedRef = firebase.database().ref(".info/connected");
+        connectedRef.on("value", function(snap) {
+          if (snap.val() === true) {
+            user.setConnected(true);
+            notification.show('You are connected with Internet');
+          } else {
+            user.setConnected(false);
+            notification.show('You are NOT connected with Internet');
+          }
+        });
+
         window.onbeforeunload = function () {
           firebase.auth().signOut()
           user.logout();
@@ -26,6 +37,11 @@
             event.preventDefault();
             $state.go('core.login');
           }
+
+          // if(!user.getConnected()) {
+          //   event.preventDefault();
+          //   $state.go('app.content');
+          // }
         });
 
         setInterval(function() {

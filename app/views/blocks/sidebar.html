@@ -22,7 +22,10 @@
 
   <div class="sidebar-menu">
     <ul class="menu-items">
-      <li class="m-t-30 open" ui-sref-active="active" ng-click="go('app.dashboard')">
+      <li class="m-t-30 open"
+          ui-sref-active="active"
+          ng-show="isConnected"
+          ng-click="go('app.dashboard')">
         <a class="detailed">
           <span class="title">Dashboard</span>
         </a>
@@ -32,7 +35,10 @@
         </span>
       </li>
 
-      <li class="open" ui-sref-active="active" ng-click="go('app.hack')">
+      <li class="open"
+          ui-sref-active="active"
+          ng-show="isConnected"
+          ng-click="go('app.hack')">
         <a class="detailed">
           <span class="title">Pool</span>
         </a>

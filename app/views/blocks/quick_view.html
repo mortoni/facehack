@@ -50,15 +50,48 @@
                 </md-slider>
               </div>
 
-              <span>Once you select a page would you</span><br>
-              <span class="m-r-10">like to listen it automactly</span>
-              <md-checkbox ng-model="vm.automactly"
-                           ng-change="vm.auto()"
-                           aria-label="Once You sele a Page Would you like to listen it Automactly"
-                           class="md-primary"
-                           id="quickview-automactly"
-                           tabindex="-1">
-              </md-checkbox>
+              <div class="row">
+                <md-checkbox ng-model="vm.automactly"
+                             ng-change="vm.auto()"
+                             aria-label="Once You sele a Page Would you like to listen it Automactly"
+                             class="md-primary"
+                             id="quickview-automactly"
+                             tabindex="-1">
+                             Once you select a page would you like to listen it automactly ?
+                </md-checkbox>
+              </div>
+
+              <div class="row">
+                <md-checkbox ng-model="vm.offline"
+                             aria-label="Would you like to have an offline experience?"
+                             class="md-primary"
+                             id="offline"
+                             tabindex="-1">Offline Experience?
+                </md-checkbox>
+              </div>
+
+              <div class="row">
+                <input type="text"
+                       class="form-control"
+                       ng-model="vm.code"
+                       tabindex="-1"
+                       maxlength="4"
+                       placeholder="4 digits only"
+                       aria-label="Enter your code for access offline"
+                       ng-disabled="!vm.offline">
+              </div>
+
+              <div class="row p-t-30 text-center">
+                <button type="button"
+                        class="btn btn-default"
+                        tabindex="-1"
+                        ng-click="vm.saveCode()"
+                        data-toggle-element="#quickview"
+                        data-toggle="quickview"
+                        aria-label="Click here to save code">SAVE
+                </button>
+              </div>
+
             </div>
           </div>
         </div>

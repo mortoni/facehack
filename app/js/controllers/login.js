@@ -15,6 +15,8 @@
       var provider = new firebase.auth.FacebookAuthProvider();
 
       function isLamp() {
+        if(!vm.isConnected)
+          return 'on';
         return vm.lamp ? 'on' : 'off';
       }
 
@@ -29,6 +31,13 @@
           notification.show('GO AWAY! You are not a HACKER, or try again.');
         });
       }
+
+      function updateConnected() {
+        vm.isConnected = user.getConnected();
+        $scope.$apply();
+      }
+
+      user.registerObserverCallback(updateConnected);
 
       $window.fbAsyncInit = function() {
           FB.init({

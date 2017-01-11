@@ -7,7 +7,53 @@
          aria-label="radio lamp button"/>
   <div class="lamp"><div class="gonna-give-light"></div></div>
 
-  <div class="text-center hidden-xs hidden-sm">
+  <div class="text-center" ng-if="!vm.isConnected">
+    <form class="form-signin form-login" name="signinForm" role="form" autocomplete="on" novalidate>
+
+      <div class="col-xs-12">
+        <div class="form-group col-xs-12"
+             ng-class="{ 'has-error' : signinForm.email.$invalid && !signinForm.email.$pristine }">
+          <label for="email">Email</label>
+          <input type="email"
+                 class="form-control"
+                 ng-model="vm.email"
+                 name="email"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                 tabindex="0"
+                 placeholder="Email"
+                 aria-label="Enter your email"
+                 autofocus="!vm.isConnected">
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="form-group col-xs-12"
+             ng-class="{ 'has-error' : signinForm.code.$invalid && !signinForm.code.$pristine }">
+          <label for="email">Code</label>
+          <input type="text"
+                 class="form-control"
+                 ng-model="vm.code"
+                 name="email"
+                 max="4"
+                 tabindex="0"
+                 placeholder="Code"
+                 aria-label="Enter your code">
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-facehack"
+              tabindex="0"
+              ng-click="vm.login_offline()"
+              aria-label="Click here to login"
+              autofocus>
+              Offline Login
+      </button>
+
+    </form>
+
+  </div>
+
+  <div class="text-center hidden-xs hidden-sm" ng-if="vm.isConnected">
     <div class="btn-group btn-m-t" role="group">
       <button class="btn btn-primary btn-facehack"
               tabindex="0"
@@ -28,7 +74,7 @@
   </div>
 
 
-  <div class="text-center visible-sm visible-xs">
+  <div class="text-center visible-sm visible-xs" ng-if="vm.isConnected">
     <div class="btn-group btn-m-t" role="group">
       <button class="btn btn-primary btn-facehack"
               tabindex="0" ng-click="vm.login_desktop()">

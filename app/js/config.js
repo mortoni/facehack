@@ -23,6 +23,7 @@
             user.setConnected(false);
             $rootScope.connected = false;
             notification.show('You are NOT connected with Internet');
+            $state.go('app.content');
           }
         });
 

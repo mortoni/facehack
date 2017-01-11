@@ -87,6 +87,7 @@ input {
   background-repeat: no-repeat;
   background-size: .15rem 8rem, .4rem .8rem, .7rem 2rem;
   background-position: 50% 0, .19rem 8rem, 0 8.8rem;
+  margin-bottom: 100px;
 
   &:before {
     content: '';
@@ -220,5 +221,14 @@ span.footer-label {
     .modal-body {
       padding: 10px !important;
     }
+  }
+}
+
+.form-login {
+  display: table;
+  margin: 0 auto;
+
+  label {
+    color: $bg-white
   }
 }

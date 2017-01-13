@@ -1,8 +1,21 @@
 (function(){
      'use strict';
      angular.module('app').run(
-       ['$state', 'user', '$rootScope', 'pool', 'facebook', 'notification', 'Logger',
-     function($state, user, $rootScope, pool, facebook, notification, Logger) {
+       ['$state',
+        'user',
+        '$rootScope',
+        'pool',
+        'facebook',
+        'notification',
+        'Logger',
+     function($state,
+              user,
+              $rootScope,
+              pool,
+              facebook,
+              notification,
+              Logger) {
+
        // Initialize Firebase
         var config = {
           apiKey: "AIzaSyBSzvDKKvxUk-PSCCzl9MwZliSlL5Qxii8",
@@ -21,7 +34,7 @@
             notification.show('You are connected with Internet');
           } else {
             user.setConnected(false);
-            $rootScope.connected = false;
+            // $rootScope.connected = false;
             notification.show('You are NOT connected with Internet');
             $state.go('app.content');
           }

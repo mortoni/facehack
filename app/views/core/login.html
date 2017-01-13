@@ -8,7 +8,12 @@
   <div class="lamp"><div class="gonna-give-light"></div></div>
 
   <div class="text-center" ng-if="!vm.isConnected">
-    <form class="form-signin form-login" name="signinForm" role="form" autocomplete="on" novalidate>
+    <form class="form-signin form-login"
+          name="signinForm"
+          role="form"
+          autocomplete="on"
+          ng-submit="vm.login_offline()"
+          novalidate>
 
       <div class="col-xs-12">
         <div class="form-group col-xs-12"
@@ -29,12 +34,13 @@
       <div class="col-xs-12">
         <div class="form-group col-xs-12"
              ng-class="{ 'has-error' : signinForm.code.$invalid && !signinForm.code.$pristine }">
-          <label for="email">Code</label>
-          <input type="text"
+          <label for="code">Code</label>
+          <input type="password"
                  class="form-control"
                  ng-model="vm.code"
-                 name="email"
+                 name="code"
                  max="4"
+                 min="1"
                  tabindex="0"
                  placeholder="Code"
                  aria-label="Enter your code">
@@ -43,7 +49,7 @@
 
       <button class="btn btn-primary btn-facehack"
               tabindex="0"
-              ng-click="vm.login_offline()"
+              type="submit"
               aria-label="Click here to login"
               autofocus>
               Offline Login

@@ -7,9 +7,13 @@
     <title>Facehack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Enable the homescreen app on mobile devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="default"> -->
     <meta content="P5 Udacity" name="description"/>
     <meta content="Alan Mortoni" name="author"/>
 
@@ -51,6 +55,7 @@
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/lodash/dist/lodash.js"></script>
     <script src="bower_components/angular-logger-max/logger.service.js"></script>
+    <script src="bower_components/idbwrapper/idbstore.min.js"></script>
     <!-- endbuild -->
     <!-- build:js js/script.min.js -->
     <script src="js/lib/ui.utils.min.js"></script>
@@ -74,6 +79,7 @@
     <script src="js/services/notification.js"></script>
     <script src="js/services/pool.js"></script>
     <script src="js/services/configuration.js"></script>
+    <script src="js/services/indexedDB.js"></script>
 
     <script src="js/directives/pg-sidebar.js"></script>
     <script src="js/directives/cs-select.js"></script>

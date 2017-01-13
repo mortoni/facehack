@@ -18,6 +18,14 @@
         code = config.code;
       }
 
+      function get() {
+        return {
+          range     : range,
+          automactly: automactly,
+          code      : code
+        }
+      }
+
       return {
         get_range  : get_range,
         set_range  : set_range,
@@ -25,7 +33,8 @@
         set_auto   : set_auto,
         set_code   : set_code,
         get_code   : get_code,
-        set        : set
+        set        : set,
+        get        : get
       };
     });
 })();

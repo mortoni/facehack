@@ -1,9 +1,10 @@
-<div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
+<div class="pull-left p-r-10 p-t-10 fs-16 font-heading" data-toggle="dropdown">
     <span class="semi-bold">{{vm.user.displayName}}</span>
 </div>
 <div class="dropdown pull-right">
   <button class="profile-dropdown-toggle"
-        type="button" data-toggle="dropdown"
+        type="button"
+        data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
         tabindex="0"
@@ -11,15 +12,20 @@
     <span class="thumbnail-wrapper d32 circular inline m-t-5">
       <img ng-src="{{vm.user.photoURL}}"
            alt="User photo"
+           ng-show="vm.isConnected"
            ui-jq="unveil"
            width="32"
            height="32">
+      <i class="fa fa-cog" ng-show="!vm.isConnected" aria-hidden="true"></i>
     </span>
   </button>
 
   <ul class="dropdown-menu profile-dropdown" role="menu">
       <li role="menuitem" tabindex="-1">
-        <a href="" data-toggle="quickview" data-toggle-element="#quickview">
+        <a href=""
+           data-toggle="quickview"
+           data-toggle-element="#quickview"
+           ng-show="vm.isConnected">
           <i class="fa fa-cog" aria-hidden="true"></i>
           <span class="user-menu-label">Settings</span>
         </a>

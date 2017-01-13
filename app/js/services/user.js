@@ -1,7 +1,10 @@
 (function () {
     'use strict';
 
-    angular.module('app').factory('user', function(){
+    angular.module('app').factory('user', ['config', 'indexedDB',
+
+    function(config, indexedDB){
+
       var user;
       var isConnected;
       var observerCallbacks = [];
@@ -39,12 +42,31 @@
       function createDatabase() {
         return firebase.database().ref('contents/' + user.uid).once('value')
         .then(function(snapshot) {
+          var configIDB = indexedDB.get_config();
+          var new_config = {
+            limit: 15,
+            automactly: true
+          };
+
           if(!snapshot.val()) {
+            // first time
             firebase.database().ref('contents/' + user.uid + '/config')
-              .set({
-                limit: 15,
-                automactly: true
+              .set(new_config).then(function(result) {
+                configIDB.then(function(data) {
+                  new_config.id = user.uid;
+                  data.put({config: new_config});
+                });
               });
+          } else {
+            configIDB.then(function(idb) {
+              var config = snapshot.val().config;
+              config.user = {};
+              config.user.uid = user.uid;
+              config.user.email = user.email;
+              config.user.displayName = user.displayName;
+              idb.clear();
+              idb.put({config: config});
+            });
           }
         });
       }
@@ -59,5 +81,5 @@
         createDatabase: createDatabase,
         registerObserverCallback: registerObserverCallback
       };
-    });
+    }]);
 })();

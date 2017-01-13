@@ -6,7 +6,7 @@
     restrict: 'E',
     bindings: {},
     templateUrl : 'components/profile/profile.tpl.html',
-    controller: function(user, notification, $state) {
+    controller: function($scope, user, notification, $state) {
       var vm = this;
       vm.user = user.current();
       vm.logout = logout;
@@ -16,6 +16,13 @@
         user.logout();
         $state.go('core.login');
       }
+
+      function updateConnected() {
+        vm.isConnected = user.getConnected();
+        $scope.$apply();
+      }
+
+      user.registerObserverCallback(updateConnected);
 
     }
   }

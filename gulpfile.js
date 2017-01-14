@@ -7,6 +7,7 @@ var sassLint = require('gulp-sass-lint');
 var eslint = require('gulp-eslint');
 var path = require('path');
 var swPrecache = require('sw-precache');
+var runSequence = require('run-sequence');
 
 var dir = {
 	dev  : 'app',
@@ -55,9 +56,13 @@ gulp.task('dist:serve', function() {
     });
 });
 
-gulp.task( 'build', [ 'clean' ], () => {
-    gulp.start( 'html', 'assets', 'fonts-awesome');
-} );
+gulp.task('build', function(callback) {
+  runSequence('clean',
+              ['html', 'assets', 'fonts-awesome'],
+              'font-dist',
+							'dist-sw',
+              callback);
+});
 
 gulp.task( 'clean', ( done ) => {
     return del( [ dir.dist + '/**/*' ], { force: true }, ( err, paths ) => {
@@ -68,7 +73,37 @@ gulp.task( 'clean', ( done ) => {
 gulp.task('generate-service-worker', function(callback) {
 
   swPrecache.write(`${dir.dev}/service-worker.js`, {
-    staticFileGlobs: [dir.dev + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    staticFileGlobs: [dir.dev + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,wof}',
+			'bower_components/bootstrap/dist/css/bootstrap.min.css',
+			'bower_components/font-awesome/css/font-awesome.css',
+			'bower_components/angular-material/angular-material.min.css',
+			'bower_components/angular-material-data-table/dist/md-data-table.min.css',
+			'bower_components/firebase/firebase.js',
+			'bower_components/jquery/dist/jquery.min.js',
+			'bower_components/angular/angular.js',
+			'bower_components/angular-ui-router/release/angular-ui-router.js',
+			'bower_components/angular-ui-grid/ui-grid.js',
+			'bower_components/jquery.scrollbar/jquery.scrollbar.js',
+			'bower_components/bootstrap/dist/js/bootstrap.min.js',
+			'bower_components/angular-animate/angular-animate.min.js',
+			'bower_components/angular-aria/angular-aria.min.js',
+			'bower_components/angular-material/angular-material.min.js',
+			'bower_components/angular-material-data-table/dist/md-data-table.min.js',
+			'bower_components/angularfire/dist/angularfire.min.js',
+			'bower_components/lodash/dist/lodash.js',
+			'bower_components/angular-logger-max/logger.service.js',
+			'bower_components/idbwrapper/idbstore.min.js',
+			'bower_components/font-awesome/fonts/fontawesome-webfont.woff2',
+      'bower_components/font-awesome/fonts/fontawesome-webfont.woff',
+      'bower_components/font-awesome/fonts/fontawesome-webfont.ttf'
+		],
     stripPrefix: dir.dev
   }, callback);
+});
+
+gulp.task('dist-sw', function(callback) {
+	swPrecache.write(`${dir.dist}/service-worker.js`, {
+		staticFileGlobs: [dir.dist + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,wof}'],
+		stripPrefix: dir.dist
+	}, callback);
 });

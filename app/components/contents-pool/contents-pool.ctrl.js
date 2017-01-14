@@ -6,7 +6,7 @@
     restrict: 'E',
     bindings: {},
     templateUrl : 'components/contents-pool/contents-pool.tpl.html',
-    controller: function(pool, $scope, $sce, user, notification) {
+    controller: function(pool, $scope, $sce, user, notification, indexedDB) {
       var db;
       var vm = this;
 
@@ -64,7 +64,7 @@
         });
 
         if(flag) {
-          firebase.database().ref('contents/' + user.id() + '/database').push({
+          var temp_content = {
             comments    : content.comments,
             created_time: content.created_time,
             full_picture: content.full_picture,
@@ -84,7 +84,15 @@
             shares      : content.shares,
             source      : content.source,
             type        : content.type
+          };
+
+          var databaseIDB = indexedDB.get_database();
+          databaseIDB.then(function(idb) {
+            idb.put({content: temp_content});
           });
+
+          firebase.database().ref('contents/' + user.id() + '/database')
+            .push(temp_content);
 
           notification.show('Content added to your database');
         }

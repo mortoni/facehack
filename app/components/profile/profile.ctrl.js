@@ -10,6 +10,7 @@
       var vm = this;
       vm.user = user.current();
       vm.logout = logout;
+      vm.isConnected = user.getConnected();
 
       function logout() {
         firebase.auth().signOut();

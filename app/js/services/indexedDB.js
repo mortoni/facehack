@@ -35,24 +35,10 @@
           });
         }
 
-        function get_user() {
-          return new Promise(function(resolve, reject) {
-            user = new IDBStore({
-              dbVersion: 1,
-              storeName: 'user',
-              keyPath: 'user_id',
-              autoIncrement: false,
-              onStoreReady: function(){
-                resolve(user);
-              }
-            });
-          });
-        }
 
         return {
           get_config  : get_config,
-          get_database: get_database,
-          get_user    : get_user
+          get_database: get_database
         };
       }
     ]);

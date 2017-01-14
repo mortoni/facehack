@@ -21,25 +21,18 @@
 
     <!--build:css(.) css/vendor.min.css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css"/>
     <!-- endbuild -->
+
     <!-- build:css css/main-v2.min.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
 <body>
     <div class="full-height" ui-view></div>
-    <script src="//connect.facebook.net/en_US/sdk.js"></script>
-    <script>
-      FB.init({
-        appId      : '1604104083228708',
-        status     : true,
-        xfbml      : true,
-        version    : 'v2.6'
-      });
-    </script>
+
     <!-- build:js(.) js/bundle.min.js -->
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -57,7 +50,10 @@
     <script src="bower_components/angular-logger-max/logger.service.js"></script>
     <script src="bower_components/idbwrapper/idbstore.min.js"></script>
     <!-- endbuild -->
+
+
     <!-- build:js js/script.min.js -->
+    <script src="js/lib/facebook-sdk.js"></script>
     <script src="js/lib/ui.utils.min.js"></script>
     <script src="js/lib/jquery.ioslist.min.js"></script>
     <script src="js/lib/jquery.unveil.min.js"></script>
@@ -101,7 +97,7 @@
     <script src="components/sidebar/sidebar.ctrl.js"></script>
     <script src="components/pages-pool/pages-pool.ctrl.js"></script>
     <script src="components/contents-pool/contents-pool.ctrl.js"></script>
-    <script src="components/database/database.ctrl.js"></script>
-    <!-- endbuild -->
+    <script src="components/database/database.ctrl.js"></script> -->
+    <!-- endbuild
   </body>
 </html>

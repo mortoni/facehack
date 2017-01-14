@@ -16,7 +16,7 @@
             <th md-column><span>Shares</span></th>
             <th md-column><span>Comments</span></th>
             <th md-column><span>Date</span></th>
-            <th md-column colspan="3"><span>Action</span></th>
+            <th md-column colspan="3" ng-show="vm.isConnected"><span>Action</span></th>
           </tr>
         </thead>
         <tbody md-body>
@@ -61,7 +61,7 @@
                 aria-label="created in {{post.data.created_time | date : 'dd MMM yy'}}">
               <span>{{post.data.created_time | date : 'dd MMM yy'}}</span>
             </td>
-            <td md-cell class="td-p-r-0">
+            <td md-cell class="td-p-r-0" ng-show="vm.isConnected">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"
@@ -73,7 +73,7 @@
                 <i class="fa fa-eye" aria-hidden="true"></i>
               </button>
             </td>
-            <td md-cell class="td-p-r-0">
+            <td md-cell class="td-p-r-0" ng-show="vm.isConnected">
               <button type="button"
                       class="btn btn-complete tip btn-xs"
                       data-toggle="tooltip"

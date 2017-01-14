@@ -32,11 +32,13 @@ gulp.task('html-component', function() {
 });
 
 gulp.task('index', function(){
-  return gulp.src('app/*.html')
+  return gulp.src('app/index.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify({
       mangle: false
-    })))
+    })).on('error', function(e){
+      console.log(e);
+    }))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist/app'))
 });

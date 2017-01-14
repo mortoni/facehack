@@ -7,29 +7,26 @@
     <title>Facehack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Enable the homescreen app on mobile devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="default"> -->
     <meta content="P5 Udacity" name="description"/>
     <meta content="Alan Mortoni" name="author"/>
 
     <link rel="icon" type="image/ico" href="facehack.ico"/>
 
     <link rel="stylesheet" href="css/vendor.min.css">
-    <link rel="stylesheet" href="css/main-v1.min.css">
+
+    <link rel="stylesheet" href="css/main-v2.min.css">
 </head>
 <body>
     <div class="full-height" ui-view></div>
-    <script src="//connect.facebook.net/en_US/sdk.js"></script>
-    <script>
-      FB.init({
-        appId      : '1604104083228708',
-        status     : true,
-        xfbml      : true,
-        version    : 'v2.6'
-      });
-    </script>
+
     <script src="js/bundle.min.js"></script>
+
+
     <script src="js/script.min.js"></script>
-  </body>
-</html>

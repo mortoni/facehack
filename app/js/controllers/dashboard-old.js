@@ -8,15 +8,15 @@
     function DashboardCtrl($scope, user, config, notification){
       var vm = this;
       vm.auto = auto;
-      vm.user = user.current();
-      vm.saveCode = saveCode;
 
       activate();
 
       function activate() {
+        vm.user = user.current();
+        vm.saveCode = saveCode;
+
         if(navigator.onLine) {
           var user_config = firebase.database().ref('contents/' + user.id() + '/config');
-
           user_config.on("value", function(snap) {
             if (snap.val()) {
               config.set(snap.val());
@@ -35,12 +35,14 @@
       }
 
       function saveCode() {
+        var config = {
+          code: vm.code,
+          limit: vm.limit,
+          automactly: vm.automactly
+        };
+
         firebase.database().ref('contents/' + user.id())
-          .update({
-            code: vm.code,
-            limit: vm.limit,
-            automactly: vm.automactly
-          })
+          .update({config})
           .then(function() {
             notification.show('Configurations saved!');
           });
@@ -49,6 +51,5 @@
       function auto(){
         config.set_auto(vm.automactly);
       }
-
     }
 })();

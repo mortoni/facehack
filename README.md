@@ -19,6 +19,8 @@ You can see a demo [here](https://facehack-19ecb.firebaseapp.com/).
 [AngularJS](https://angularjs.org/)  
 [Firebase](https://www.firebase.com/)  
 Web Components  
+Service Worker  
+IndexedDB  
 JavaScript  
 HTML5  
 CSS3  

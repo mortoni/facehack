@@ -1,23 +1,13 @@
 # Dashboard
 
-Corporate Dashboard App, Project 4 from Udacity Senior Web Developer Nanodegree. It's a responsive app.  
+Capstone Project, Project 5 from Udacity Senior Web Developer Nanodegree. It's a responsive app.  
 ### Requirement  
-> You must develop a corporate dashboard application using a front-end MVC framework of your choosing. The dashboard application must contain a header (with the currently selected dashboard’s name); a menu, allowing the user to navigate between dashboards; and the primary dashboard display area. You should find, or create, your own data files in CSV and JSON formats to provide data to the dashboards. The required dashboards are:
-A geospatial view, identifying the number of employees at various company locations.
-A “key metrics” view, containing components displaying: the number of open issues, a line chart reflecting number of paying customers over a period of time, and a bar chart reflecting number of reported issues over a period of time.
-A “data view” of all issues, with an appearance similar to a spreadsheet, that is sortable and filterable. An issue should contain the following fields:
-submission timestamp,
-customer name,
-customer email address,
-description,
-open/closed status,
-closed timestamp,
-employee name  
+> You must create your very own web application that functions just as a native mobile application would, using all that you’ve learned throughout this Nanodegree program.
 
 > Udacity
 
-##[Demo](https://udacityfour.firebaseapp.com/#/app/home)  
-You can see a demo [here](https://udacityfour.firebaseapp.com/#/app/home).  
+##[Demo](https://facehack-19ecb.firebaseapp.com/)  
+You can see a demo [here](https://facehack-19ecb.firebaseapp.com/).  
 
 ### Mobile  
 <img src="https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/udacityfour.firebaseapp.com-(iPhone%206).png?alt=media&token=2385b14a-0f38-4ae9-b8aa-07021e74073b" width="250" height="500" /> <img src="https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/udacityfour.firebaseapp.com-(iPhone%206)%202.png?alt=media&token=c3b038f1-8adc-450e-941f-8ab4539f9e3a" width="250" height="500" /> <img src="https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/udacityfour.firebaseapp.com-(iPhone%206)%20(1).png?alt=media&token=0e814c6b-fe5d-43d9-9f55-706c3546a5ff" width="250" height="500" />

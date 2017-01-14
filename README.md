@@ -1,4 +1,4 @@
-# Dashboard
+# Capstone Project
 
 Capstone Project, Project 5 from Udacity Senior Web Developer Nanodegree. It's a responsive app.  
 ### Requirement  
@@ -10,25 +10,34 @@ Capstone Project, Project 5 from Udacity Senior Web Developer Nanodegree. It's a
 You can see a demo [here](https://facehack-19ecb.firebaseapp.com/).  
 
 ### Mobile  
-<img src="https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/udacityfour.firebaseapp.com-(iPhone%206).png?alt=media&token=2385b14a-0f38-4ae9-b8aa-07021e74073b" width="250" height="500" /> <img src="https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/udacityfour.firebaseapp.com-(iPhone%206)%202.png?alt=media&token=c3b038f1-8adc-450e-941f-8ab4539f9e3a" width="250" height="500" /> <img src="https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/udacityfour.firebaseapp.com-(iPhone%206)%20(1).png?alt=media&token=0e814c6b-fe5d-43d9-9f55-706c3546a5ff" width="250" height="500" />
+<img src="https://raw.githubusercontent.com/mortoni/facehack/master/app/images/mobile-1.png" width="250" height="500" /> <img src="https://raw.githubusercontent.com/mortoni/facehack/master/app/images/mobile-2.png" width="250" height="500" /> <img src="https://raw.githubusercontent.com/mortoni/facehack/master/app/images/mobile-3.png" width="250" height="500" />
 
 ### Desktop  
-![image](https://firebasestorage.googleapis.com/v0/b/udacityfour.appspot.com/o/Screen%20Shot%202016-10-31%20at%205.00.18%20pm.png?alt=media&token=a018ad37-ed24-47e7-9b56-47020e96e727)  
+![image](https://raw.githubusercontent.com/mortoni/facehack/master/app/images/desktop.png)  
 
 ##Technologies
 [AngularJS](https://angularjs.org/)  
 [Firebase](https://www.firebase.com/)  
+Web Components  
 JavaScript  
 HTML5  
 CSS3  
-Gulp
-BootStrap 3
+Gulp  
+BootStrap 3  
 Angular Material  
 JQuery  
 
 ##Dependencies
 - **Node.js**  
 You must download and install it [here](https://nodejs.org/en/).  
+
+##How Application Works ?
+Login in using your facebook account. Look for pages of your interest in Dashboard
+ e.g. CNN, Then option for Hack it, then go to the Pool and if the app finds any new content
+  it will be show on Contents Pool. Once it appear click add to database.
+
+If you want an offline experience you have to go Settings and tick offline experience.
+and type in a code.
 
 ##Running
 Go to root folder of project, open your terminal and then follow steps:  
@@ -58,7 +67,7 @@ $ gulp build
 
 - Running distribution server:  
 ```{r, engine='bash', count_lines}
-$ gulp dist:test
+$ gulp dist:serve
 ```
 
 ##Features  

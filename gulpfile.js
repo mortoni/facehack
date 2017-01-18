@@ -72,7 +72,7 @@ gulp.task( 'clean', ( done ) => {
 
 gulp.task('generate-service-worker', function(callback) {
 
-  swPrecache.write(`${dir.dev}/service-worker.js`, {
+  swPrecache.write(`${dir.dev}/js/service-worker.js`, {
     staticFileGlobs: [dir.dev + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,wof}',
 			'bower_components/bootstrap/dist/css/bootstrap.min.css',
 			'bower_components/font-awesome/css/font-awesome.css',

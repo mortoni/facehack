@@ -1,0 +1,27 @@
+{
+  "short_name": "Facehack",
+  "name": "Facebook Hack App",
+  "icons": [
+    {
+      "src": "images/facehack2.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/facehack2.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/facehack2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "#9E9E9E",
+  "background_color": "#9E9E9E"
+}

@@ -102,7 +102,7 @@ gulp.task('generate-service-worker', function(callback) {
 });
 
 gulp.task('dist-sw', function(callback) {
-	swPrecache.write(`${dir.dist}/service-worker.js`, {
+	swPrecache.write(`${dir.dist}/app/js/service-worker.js`, {
 		staticFileGlobs: [dir.dist + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,wof}'],
 		stripPrefix: dir.dist
 	}, callback);
